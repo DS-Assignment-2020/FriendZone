@@ -20,19 +20,18 @@ public class UserInfo<T> implements Info{
     private T email, username, password;
     private String id;
     
-    public UserInfo(T username, T password, T email){
+    public UserInfo(T email, T password, T username){
         this.username=username;
         this.email=email;
         this.password=password;
         id = getID();
-        storeText();
     }
 
     @Override
     public void storeText() {
         try{
             PrintWriter store = new PrintWriter(new FileOutputStream("C:\\Users\\Owner\\Documents\\NetBeansProjects\\FriendZone\\Database.txt", true));
-            store.print(email+" "+username+" "+password+" "+id+"\n");
+            store.print(email+" "+password+" "+username+" "+id+"\n");
             store.close();
         }catch(IOException e){
             System.out.println("Sorry, database does not exist");
