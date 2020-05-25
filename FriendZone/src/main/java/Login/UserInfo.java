@@ -30,7 +30,7 @@ public class UserInfo<T> implements Info{
     @Override
     public void storeText() {
         try{
-            PrintWriter store = new PrintWriter(new FileOutputStream("C:\\Users\\Owner\\Documents\\NetBeansProjects\\FriendZone\\Database.txt", true));
+            PrintWriter store = new PrintWriter(new FileOutputStream("C:\\Users\\Owner\\Documents\\NetBeansProjects\\FriendZone\\FriendZone\\Database.txt", true));
             store.print(email+" "+password+" "+username+" "+id+"\n");
             store.close();
         }catch(IOException e){
@@ -42,7 +42,7 @@ public class UserInfo<T> implements Info{
     public String getID() {
         String lastID = "";
         try{
-            Scanner read = new Scanner(new FileInputStream("C:\\Users\\Owner\\Documents\\NetBeansProjects\\FriendZone\\Database.txt"));
+            Scanner read = new Scanner(new FileInputStream("C:\\Users\\Owner\\Documents\\NetBeansProjects\\FriendZone\\FriendZone\\Database.txt"));
   
             while(read.hasNextLine()){
                 String currentLine = "";
