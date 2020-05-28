@@ -33,7 +33,7 @@ public class LoginScreen {
             String username = b.nextLine();
             System.out.print("Password: ");
             String password = c.next();
-            UserInfo<String> user = new UserInfo(username,password,email);
+            UserInfo<String> user = new UserInfo(email,password,username);
             user.storeText();
             
         }else if(input=='L'||input=='l'){

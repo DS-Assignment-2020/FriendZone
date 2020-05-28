@@ -54,6 +54,7 @@ public class UserInfo<T> implements Info{
         }catch(FileNotFoundException e){
             System.out.println("Sorry, database could not be retrieved");
         }
+        System.out.println(lastID.getClass().getSimpleName());
         int ID = Integer.parseInt(lastID) + 1;
         lastID = Integer.toString(ID);
         String finalID="";
