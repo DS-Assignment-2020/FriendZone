@@ -54,7 +54,7 @@ public class LoginScreen {
     
     public static String checkLogin(String email,String password){
         try{
-            Scanner scan = new Scanner(new FileInputStream("C:\\Users\\Owner\\Documents\\NetBeansProjects\\FriendZone\\FriendZone\\Database.txt")); 
+            Scanner scan = new Scanner(new FileInputStream("Database.txt")); 
             Scanner f = new Scanner(System.in);
             System.out.print("Would you like to register a new account? [Y/N] ");
             Character input = f.next().charAt(0);
