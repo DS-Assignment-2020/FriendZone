@@ -25,6 +25,7 @@ public class LoginScreen {
         Scanner b = new Scanner(System.in);
         Scanner c = new Scanner(System.in);
         Scanner d = new Scanner(System.in);
+        Scanner e = new Scanner(System.in);
         Character input = a.next().charAt(0);
         if(input=='S'||input=='s'){
             System.out.print("E-mail: ");
@@ -33,7 +34,9 @@ public class LoginScreen {
             String username = b.nextLine();
             System.out.print("Password: ");
             String password = c.next();
-            UserInfo<String> user = new UserInfo(email,password,username);
+            System.out.print("Gender: ");
+            Character gender = e.next().charAt(0);
+            UserInfo<String,Character> user = new UserInfo(email,password,username,gender);
             user.storeText();
             
         }else if(input=='L'||input=='l'){
@@ -43,9 +46,11 @@ public class LoginScreen {
             String password = b.next();
             System.out.print("New Username: ");
             String new_username = c.nextLine();
+            System.out.print("Gender: ");
+            Character gender = e.next().charAt(0);
             String userID = checkLogin(email,password);
             if(userID.length()==4){
-               ExistingUser user = new ExistingUser(email,password,new_username,userID);
+               ExistingUser user = new ExistingUser(email,password,new_username,gender,userID);
                user.storeText();
             }else
                 System.out.println(userID);

@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author USER
  */
-public class AssignmentDS {
+public class Encryption {
 
     /**
      * @param args the command line arguments

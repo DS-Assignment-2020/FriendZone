@@ -16,22 +16,24 @@ import java.util.Scanner;
  *
  * @author Owner
  */
-public class UserInfo<T> implements Info{
+public class UserInfo<T,K> implements Info{
     private T email, username, password;
     private String id;
+    private K gender;
     
-    public UserInfo(T email, T password, T username){
+    public UserInfo(T email, T password, T username,K gender){
         this.username=username;
         this.email=email;
         this.password=password;
+        this.gender=gender;
         id = getID();
     }
 
     @Override
     public void storeText() {
         try{
-            PrintWriter store = new PrintWriter(new FileOutputStream("C:\\Users\\Owner\\Documents\\NetBeansProjects\\FriendZone\\FriendZone\\Database.txt", true));
-            store.print(email+" "+password+" "+username+" "+id+"\n");
+            PrintWriter store = new PrintWriter(new FileOutputStream("Database.txt", true));
+            store.print(email+" "+password+" "+username+" "+gender+" "+id+"\n");
             store.close();
         }catch(IOException e){
             System.out.println("Sorry, database does not exist");
@@ -42,19 +44,21 @@ public class UserInfo<T> implements Info{
     public String getID() {
         String lastID = "";
         try{
-            Scanner read = new Scanner(new FileInputStream("C:\\Users\\Owner\\Documents\\NetBeansProjects\\FriendZone\\FriendZone\\Database.txt"));
+            Scanner read = new Scanner(new FileInputStream("Database.txt"));
   
             while(read.hasNextLine()){
                 String currentLine = "";
                 currentLine = read.nextLine();
                 String [] info = currentLine.split(" ");
-                lastID = info[info.length-1];
+                if(lastID.equals(""))
+                    lastID = "0000";
+                if(Integer.parseInt(info[info.length-1])>Integer.parseInt(lastID))
+                    lastID = info[info.length-1];
             }
            read.close(); 
         }catch(FileNotFoundException e){
             System.out.println("Sorry, database could not be retrieved");
         }
-        System.out.println(lastID.getClass().getSimpleName());
         int ID = Integer.parseInt(lastID) + 1;
         lastID = Integer.toString(ID);
         String finalID="";

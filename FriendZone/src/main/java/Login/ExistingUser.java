@@ -16,21 +16,23 @@ import java.util.Scanner;
  *
  * @author Owner
  */
-public class ExistingUser<T>{
+public class ExistingUser<T,K>{
     
    private T email, username, password, id;
+   private K gender;
     
-    public ExistingUser(T email, T password, T username,T id){
+    public ExistingUser(T email, T password, T username,K gender,T id){
         this.username=username;
         this.email=email;
         this.password=password;
         this.id=id;
+        this.gender=gender;
     }
 
     public void storeText() {
         try{
-            PrintWriter store = new PrintWriter(new FileOutputStream("C:\\Users\\Owner\\Documents\\NetBeansProjects\\FriendZone\\FriendZone\\Database.txt", true));
-            store.print(email+" "+password+" "+username+" "+id+"\n");
+            PrintWriter store = new PrintWriter(new FileOutputStream("Database.txt", true));
+            store.print(email+" "+password+" "+username+" "+gender+" "+id+"\n");
             store.close();
         }catch(IOException e){
             System.out.println("Sorry, database does not exist");
