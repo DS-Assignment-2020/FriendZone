@@ -199,6 +199,7 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void textemailActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
+        System.out.println("lancau");
     }                                         
 
     private void closeMouseClicked(java.awt.event.MouseEvent evt) {                                   
@@ -234,7 +235,12 @@ public class LoginForm extends javax.swing.JFrame {
         c.setLocationRelativeTo(null);
         c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
-    }                                          
+    }    
+    
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // TODO add your handling code here:
+        
+    } 
 
     /**
      * @param args the command line arguments

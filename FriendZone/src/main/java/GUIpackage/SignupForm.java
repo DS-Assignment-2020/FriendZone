@@ -5,6 +5,7 @@
  */
 package GUIpackage;
 
+import java.awt.event.MouseEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 
@@ -37,7 +38,8 @@ public class SignupForm extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-
+        
+        min = new javax.swing.JLabel();
         male = new javax.swing.JRadioButton();
         female = new javax.swing.JRadioButton();
         gender = new javax.swing.JLabel();
@@ -54,6 +56,18 @@ public class SignupForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        
+         min.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
+        min.setForeground(new java.awt.Color(236, 240, 241));
+        min.setText("—");
+        min.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        min.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minMouseClicked(evt);
+            }
+        });
+        
+        
 
         male.setBackground(new java.awt.Color(255, 255, 255));
         male.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -162,6 +176,9 @@ public class SignupForm extends javax.swing.JFrame {
                 .addGap(1730, 1730, 1730)
                 .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
+                .addGap(1660, 1660, 1660)
+                .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))        
+            .addGroup(layout.createSequentialGroup()
                 .addGap(810, 810, 810)
                 .addComponent(female, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 1800, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,6 +218,9 @@ public class SignupForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+             .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))        
             .addGroup(layout.createSequentialGroup()
                 .addGap(680, 680, 680)
                 .addComponent(female))
@@ -212,7 +232,23 @@ public class SignupForm extends javax.swing.JFrame {
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {                                       
         // TODO add your handling code here:
-    }                                      
+        String email_text = textemail.getText();
+        String username_text = textusername.getText();
+        String pass_word = new String(password.getPassword());
+        Character gender_select;
+        if(male.isSelected())
+            gender_select = 'M';
+        else if(female.isSelected())
+            gender_select = 'F';
+        else
+            gender_select = '?';
+        UserInfo<String,Character> signup = new UserInfo(email_text,pass_word,username_text,gender_select);
+        signup.storeText();
+    }  
+    
+    private void minMouseClicked(java.awt.event.MouseEvent evt) {
+                 this.setState(JFrame.ICONIFIED);
+            }
 
     private void textemailActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
@@ -282,5 +318,6 @@ public class SignupForm extends javax.swing.JFrame {
     private javax.swing.JTextField textemail;
     private javax.swing.JTextField textusername;
     private javax.swing.JLabel username;
+    private javax.swing.JLabel min;
     // End of variables declaration                   
 }
