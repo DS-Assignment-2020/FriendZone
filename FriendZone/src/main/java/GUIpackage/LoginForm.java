@@ -7,9 +7,13 @@ package GUIpackage;
 
 
 import java.awt.Image;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -102,6 +106,11 @@ public class LoginForm extends javax.swing.JFrame {
         login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("Log In");
         login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
 
         close.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
         close.setForeground(new java.awt.Color(236, 240, 241));
@@ -199,7 +208,6 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void textemailActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
-        System.out.println("lancau");
     }                                         
 
     private void closeMouseClicked(java.awt.event.MouseEvent evt) {                                   
@@ -239,8 +247,34 @@ public class LoginForm extends javax.swing.JFrame {
     
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+        if(!authenticate(textemail.getText(),new String(password.getPassword()))){
+            LoginForm.infoBox("Incorrect email or password. Please try again", "Error");
+        }
         
     } 
+    
+    public static void infoBox(String infoMessage, String titleBar)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private boolean authenticate(String email, String password){
+       try{
+            Scanner scan = new Scanner(new FileInputStream("Database.txt")); 
+                while(scan.hasNextLine()){
+                    String line = scan.nextLine();
+                    String [] userinfo = line.split(" ");
+                    if(userinfo[0].equals(email)){
+                        if(password.equals(userinfo[1]))
+                        return true;
+                    }
+            }
+            }catch(FileNotFoundException e){
+                System.out.println("Sorry, database could not be retrieved");
+            }
+        
+        return false; 
+    }
 
     /**
      * @param args the command line arguments
