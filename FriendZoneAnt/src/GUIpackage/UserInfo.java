@@ -11,6 +11,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Scanner;
 
 /**
@@ -18,60 +23,59 @@ import java.util.Scanner;
  * @author Owner
  */
 public class UserInfo<T,K> implements Info{
-    private T email, username, password;
+    private T email, username, password, gender;
+    private int number;
     private String id;
-    private K gender;
     
-    public UserInfo(T email, T password, T username,K gender){
+    public UserInfo(T email, T password, T username,T gender){
         this.username=username;
         this.email=email;
         this.password=password;
         this.gender=gender;
-        id = getID();
     }
 
     @Override
-    public void storeText() {
+    public void storeDatabase() {
         try{
-            PrintWriter store = new PrintWriter(new FileOutputStream("Database.txt", true));
-            store.print(email+" "+password+" "+username+" "+gender+" "+id+"\n");
-            store.close();
-        }catch(IOException e){
-            System.out.println("Sorry, database does not exist");
+            String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
+            Connection con = DriverManager.getConnection(url, "root", "password");
+            Statement query = con.createStatement();
+            id = "0004";
+//            PreparedStatement stmt = con.prepareStatement("INSERT INTO logintest (email,password,username,gender,userid) VALUES(?, ?, ?, ?, ?);");
+//            stmt.setString (1, (String) email);
+//            stmt.setString (2, (String) password);
+//            stmt.setString   (3, (String) username);
+//            stmt.setString(4,(String) gender);
+//            stmt.setString    (5, (String) id);
+//            stmt.execute();
+              query.executeUpdate("INSERT INTO signup (email,password,username,gender,userid) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"', '"+id.toString()+"');");
+//            while(get.next()){
+//                String email = get.getString("email");
+//                System.out.println(email);
+//            }
+            con.close();
+        }catch(Exception e){
+            System.out.println("Error!");
         }
     }
 
     @Override
     public String getID() {
-        int lastID = 0;
         try{
-            Scanner read = new Scanner(new FileInputStream("Database.txt"));
-  
-            while(read.hasNextLine()){
-                String currentLine = "";
-                currentLine = read.nextLine();
-                if(currentLine.equals(""))
-                    break;
-                String [] info = currentLine.split(" ");
-                int ID = Integer.parseInt(info[info.length-1]);
-                if(ID>lastID)
-                    lastID = ID;
+            String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
+            Statement query = conn.createStatement();
+            ResultSet rs;
+            rs = query.executeQuery("SELECT userid FROM signup WHERE email = '"+email.toString()+"';");
+            while ( rs.next() ) {
+                id = rs.getString("userid");
+                System.out.println(id);
             }
-           read.close(); 
-        }catch(FileNotFoundException e){
-            System.out.println("Sorry, database could not be retrieved");
+            conn.close();
+        }catch(Exception e){
+            System.out.println("Error!");
         }
-        lastID +=1;
-        String last_ID = Integer.toString(lastID);
-        String finalID="";
-        for(int i=0;i<4;i++){
-            if(i<(4-last_ID.length())){
-                finalID += "0";
-            }else
-                finalID += last_ID;
-        }
-        
-        return finalID;
+        return id;
     }
     
 }

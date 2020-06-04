@@ -22,11 +22,8 @@ public class DatabaseTest {
     public static void main(String[] args) {
         // TODO code application logic here
          try{
-            String driver = "com.mysql.cj.jdbc.Driver";
-            Class.forName(driver);
             String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
             Connection con = DriverManager.getConnection(url, "root", "password");
-            System.out.println("pp");
             Statement query = con.createStatement();
             ResultSet get = query.executeQuery("SELECT email FROM logintest");
             while(get.next()){

@@ -235,15 +235,15 @@ public class SignupForm extends javax.swing.JFrame {
         String email_text = textemail.getText();
         String username_text = textusername.getText();
         String pass_word = new String(password.getPassword());
-        Character gender_select;
+        String gender_select;
         if(male.isSelected())
-            gender_select = 'M';
+            gender_select = "M";
         else if(female.isSelected())
-            gender_select = 'F';
+            gender_select = "F";
         else
-            gender_select = '?';
+            gender_select = "?";
         UserInfo<String,Character> signup = new UserInfo(email_text,pass_word,username_text,gender_select);
-        signup.storeText();
+        signup.storeDatabase();
     }  
     
     private void minMouseClicked(java.awt.event.MouseEvent evt) {
