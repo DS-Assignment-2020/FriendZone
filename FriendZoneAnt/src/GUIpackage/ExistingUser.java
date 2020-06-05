@@ -11,6 +11,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.Scanner;
 
 /**
@@ -30,13 +33,16 @@ public class ExistingUser<T,K>{
         this.gender=gender;
     }
 
-    public void storeDatabase() {
+   public void storeDatabase() {
         try{
-            PrintWriter store = new PrintWriter(new FileOutputStream("Database.txt", true));
-            store.print(email+" "+password+" "+username+" "+gender+" "+id+"\n");
-            store.close();
-        }catch(IOException e){
-            System.out.println("Sorry, database does not exist");
+            String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
+            Connection con = DriverManager.getConnection(url, "root", "password");
+            Statement query = con.createStatement();
+            query.executeUpdate("INSERT INTO signup (email,password,username,gender,userid) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"', '"+id.toString()+"');");
+
+            con.close();
+        }catch(Exception e){
+            System.out.println("Error!");
         }
     }
 

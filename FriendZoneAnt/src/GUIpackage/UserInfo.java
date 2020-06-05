@@ -24,14 +24,14 @@ import java.util.Scanner;
  */
 public class UserInfo<T,K> implements Info{
     private T email, username, password, gender;
-    private int number;
     private String id;
     
-    public UserInfo(T email, T password, T username,T gender){
+    public UserInfo(T email, T password, T username,T gender,String id){
         this.username=username;
         this.email=email;
         this.password=password;
         this.gender=gender;
+        this.id=id;
     }
 
     @Override
@@ -40,19 +40,8 @@ public class UserInfo<T,K> implements Info{
             String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
             Connection con = DriverManager.getConnection(url, "root", "password");
             Statement query = con.createStatement();
-            id = "0004";
-//            PreparedStatement stmt = con.prepareStatement("INSERT INTO logintest (email,password,username,gender,userid) VALUES(?, ?, ?, ?, ?);");
-//            stmt.setString (1, (String) email);
-//            stmt.setString (2, (String) password);
-//            stmt.setString   (3, (String) username);
-//            stmt.setString(4,(String) gender);
-//            stmt.setString    (5, (String) id);
-//            stmt.execute();
-              query.executeUpdate("INSERT INTO signup (email,password,username,gender,userid) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"', '"+id.toString()+"');");
-//            while(get.next()){
-//                String email = get.getString("email");
-//                System.out.println(email);
-//            }
+            query.executeUpdate("INSERT INTO signup (email,password,username,gender,userid) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"', '"+id+"');");
+
             con.close();
         }catch(Exception e){
             System.out.println("Error!");
@@ -65,11 +54,9 @@ public class UserInfo<T,K> implements Info{
             String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs;
-            rs = query.executeQuery("SELECT userid FROM signup WHERE email = '"+email.toString()+"';");
+            ResultSet rs = query.executeQuery("SELECT userid FROM signup WHERE email = '"+email.toString()+"';");
             while ( rs.next() ) {
                 id = rs.getString("userid");
-                System.out.println(id);
             }
             conn.close();
         }catch(Exception e){

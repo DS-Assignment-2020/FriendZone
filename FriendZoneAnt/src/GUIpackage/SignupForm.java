@@ -6,6 +6,10 @@
 package GUIpackage;
 
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 
@@ -242,9 +246,64 @@ public class SignupForm extends javax.swing.JFrame {
             gender_select = "F";
         else
             gender_select = "?";
-        UserInfo<String,Character> signup = new UserInfo(email_text,pass_word,username_text,gender_select);
-        signup.storeDatabase();
-    }  
+        
+        if(checkAccount(email_text).length()==4){
+            ExistingUser<String,Character> signup = new ExistingUser(email_text,pass_word,username_text,gender_select,checkAccount(email_text));
+            signup.storeDatabase();
+        }else{
+            String newID = newID();
+            UserInfo<String,Character> signup = new UserInfo(email_text,pass_word,username_text,gender_select,newID);
+            signup.storeDatabase();
+        } 
+    } 
+    
+    public String checkAccount(String email_text){
+        String id = "";
+        try{
+            String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
+            Statement query = conn.createStatement();
+            ResultSet rs = query.executeQuery("SELECT userid FROM signup WHERE email = '"+email_text+"';");
+            while ( rs.next() ) {
+                id = rs.getString("userid");
+            }
+            conn.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+        return id;
+    }
+    
+    public String newID(){
+        String id = "";
+        int bigID = 0;
+        try{
+            String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
+            Connection connect = DriverManager.getConnection(url, "root", "password");
+            Statement query = connect.createStatement();
+            ResultSet rs = query.executeQuery("SELECT userid FROM signup;");
+            while ( rs.next() ) {
+                id = rs.getString("userid");
+                int temp = Integer.parseInt(id);
+                if(temp>bigID)
+                    bigID = temp;
+            }
+            connect.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+        bigID +=1;
+        String last_ID = Integer.toString(bigID);
+        String finalID="";
+        for(int i=0;i<4;i++){
+            if(i<(4-last_ID.length())){
+                finalID += "0";
+            }else
+                finalID += last_ID;
+        }
+        
+        return finalID;
+    }
     
     private void minMouseClicked(java.awt.event.MouseEvent evt) {
                  this.setState(JFrame.ICONIFIED);
