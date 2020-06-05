@@ -9,6 +9,10 @@ package GUIpackage;
 import java.awt.Image;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -258,21 +262,24 @@ public class LoginForm extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
     }
     
-    private boolean authenticate(String email, String password){
+    private boolean authenticate(String email_text, String pass_word){
        try{
-            Scanner scan = new Scanner(new FileInputStream("Database.txt")); 
-                while(scan.hasNextLine()){
-                    String line = scan.nextLine();
-                    String [] userinfo = line.split(" ");
-                    if(userinfo[0].equals(email)){
-                        if(password.equals(userinfo[1]))
-                        return true;
-                    }
+            String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
+            Statement query = conn.createStatement();
+            ResultSet rs = query.executeQuery("SELECT password FROM signup WHERE email = '"+email_text+"';");
+            while ( rs.next() ) {
+                String password = rs.getString("password");
+                if(pass_word.equals(password))
+                    return true;
+                else
+                    return false;
             }
-            }catch(FileNotFoundException e){
-                System.out.println("Sorry, database could not be retrieved");
-            }
-        
+            conn.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+       
         return false; 
     }
 
