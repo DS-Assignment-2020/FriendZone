@@ -264,8 +264,8 @@ public class LoginForm extends javax.swing.JFrame {
     
     private boolean authenticate(String email_text, String pass_word){
        try{
-            String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
-            Connection conn = DriverManager.getConnection(url, "root", "password");
+            String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12346000?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+            Connection conn = DriverManager.getConnection(url, "sql12346000", "n8m6PMX5x5");
             Statement query = conn.createStatement();
             ResultSet rs = query.executeQuery("SELECT password FROM signup WHERE email = '"+email_text+"';");
             while ( rs.next() ) {

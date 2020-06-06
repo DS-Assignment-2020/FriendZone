@@ -260,8 +260,8 @@ public class SignupForm extends javax.swing.JFrame {
     public String checkAccount(String email_text){
         String id = "";
         try{
-            String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
-            Connection conn = DriverManager.getConnection(url, "root", "password");
+            String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12346000?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+            Connection conn = DriverManager.getConnection(url, "sql12346000", "n8m6PMX5x5");
             Statement query = conn.createStatement();
             ResultSet rs = query.executeQuery("SELECT userid FROM signup WHERE email = '"+email_text+"';");
             while ( rs.next() ) {
@@ -278,8 +278,8 @@ public class SignupForm extends javax.swing.JFrame {
         String id = "";
         int bigID = 0;
         try{
-            String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
-            Connection connect = DriverManager.getConnection(url, "root", "password");
+            String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12346000?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+            Connection connect = DriverManager.getConnection(url, "sql12346000", "n8m6PMX5x5");
             Statement query = connect.createStatement();
             ResultSet rs = query.executeQuery("SELECT userid FROM signup;");
             while ( rs.next() ) {
