@@ -15,5 +15,4 @@ public interface Info {
     
     public void storeDatabase();
     
-    public String getID();
 }
