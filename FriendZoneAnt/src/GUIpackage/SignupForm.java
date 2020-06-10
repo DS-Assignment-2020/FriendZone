@@ -247,11 +247,11 @@ public class SignupForm extends javax.swing.JFrame {
         else
             gender_select = "?";
         
+        String newID = newID();
         if(checkAccount(email_text).length()==8){
-            ExistingUser<String,Character> signup = new ExistingUser(email_text,pass_word,username_text,gender_select,checkAccount(email_text));
+            ExistingUser<String,Character> signup = new ExistingUser(email_text,pass_word,username_text,gender_select,newID);
             signup.storeDatabase();
         }else{
-            String newID = newID();
             UserInfo<String,Character> signup = new UserInfo(email_text,pass_word,username_text,gender_select,newID);
             signup.storeDatabase();
         } 
@@ -263,9 +263,9 @@ public class SignupForm extends javax.swing.JFrame {
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT userid FROM signup WHERE email = '"+email_text+"';");
+            ResultSet rs = query.executeQuery("SELECT specialid FROM signupuser WHERE email = '"+email_text+"';");
             while ( rs.next() ) {
-                id = rs.getString("userid");
+                id = rs.getString("specialid");
             }
             conn.close();
         }catch(Exception e){
@@ -281,9 +281,9 @@ public class SignupForm extends javax.swing.JFrame {
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection connect = DriverManager.getConnection(url, "root", "password");
             Statement query = connect.createStatement();
-            ResultSet rs = query.executeQuery("SELECT userid FROM signup;");
+            ResultSet rs = query.executeQuery("SELECT specialid FROM signupuser;");
             while ( rs.next() ) {
-                id = rs.getString("userid");
+                id = rs.getString("specialid");
                 int temp = Integer.parseInt(id);
                 if(temp>bigID)
                     bigID = temp;

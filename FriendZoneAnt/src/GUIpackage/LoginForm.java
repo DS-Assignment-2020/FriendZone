@@ -267,7 +267,7 @@ public class LoginForm extends javax.swing.JFrame {
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT password FROM signup WHERE email = '"+email_text+"';");
+            ResultSet rs = query.executeQuery("SELECT password FROM signupuser WHERE email = '"+email_text+"';");
             while ( rs.next() ) {
                 String password = rs.getString("password");
                 if(pass_word.equals(password))
