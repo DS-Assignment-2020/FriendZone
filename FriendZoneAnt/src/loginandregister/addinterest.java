@@ -19,7 +19,7 @@ public class addinterest extends javax.swing.JFrame {
      */
     public addinterest() {
         initComponents();
-        add.setBackground(new Color(0,0,0,0));
+        findfriend.setBackground(new Color(0,0,0,0));
         leftarrow.setBackground(new Color(0,0,0,0));
         rightarrow.setBackground(new Color(0,0,0,0));
     }
@@ -36,12 +36,13 @@ public class addinterest extends javax.swing.JFrame {
         close = new javax.swing.JLabel();
         min = new javax.swing.JLabel();
         leftarrow = new javax.swing.JButton();
-        add = new javax.swing.JButton();
+        findfriend = new javax.swing.JButton();
         rightarrow = new javax.swing.JButton();
         enterinterest = new javax.swing.JTextField();
         Name = new javax.swing.JLabel();
         gender = new javax.swing.JLabel();
         interest = new javax.swing.JLabel();
+        add = new javax.swing.JButton();
         coordinate = new javax.swing.JLabel();
         About = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -72,13 +73,13 @@ public class addinterest extends javax.swing.JFrame {
             }
         });
 
-        add.setBackground(new java.awt.Color(52, 152, 219));
-        add.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        add.setForeground(new java.awt.Color(255, 255, 255));
-        add.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add.addActionListener(new java.awt.event.ActionListener() {
+        findfriend.setBackground(new java.awt.Color(52, 152, 219));
+        findfriend.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        findfriend.setForeground(new java.awt.Color(255, 255, 255));
+        findfriend.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        findfriend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addActionPerformed(evt);
+                findfriendActionPerformed(evt);
             }
         });
 
@@ -104,13 +105,23 @@ public class addinterest extends javax.swing.JFrame {
         interest.setForeground(new java.awt.Color(102, 102, 102));
         interest.setText("interest");
 
+        add.setBackground(new java.awt.Color(255, 255, 204));
+        add.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        add.setText("Add interest");
+        add.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addActionPerformed(evt);
+            }
+        });
+
         coordinate.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         coordinate.setText("coordinate");
 
         About.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         About.setText("About XXX");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elaine Tee\\Documents\\NetBeansProjects\\DSassignment\\FriendZone\\FriendZoneAnt\\friend interest.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elaine Tee\\Documents\\NetBeansProjects\\DSassignment\\FriendZone\\FriendZoneAnt\\interest.jpg")); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -118,13 +129,13 @@ public class addinterest extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(1860, 1860, 1860)
+                .addGap(1790, 1790, 1790)
+                .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(440, 440, 440)
-                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(leftarrow, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,28 +146,30 @@ public class addinterest extends javax.swing.JFrame {
                 .addGap(690, 690, 690)
                 .addComponent(rightarrow, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(389, 389, 389)
-                .addComponent(enterinterest, javax.swing.GroupLayout.PREFERRED_SIZE, 1110, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(730, 730, 730)
-                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(1790, 1790, 1790)
-                .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(440, 440, 440)
                 .addComponent(interest, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(389, 389, 389)
+                .addComponent(enterinterest, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(730, 730, 730)
+                .addComponent(findfriend, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(900, 900, 900)
+                .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(140, 140, 140)
+                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -169,26 +182,27 @@ public class addinterest extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(rightarrow, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(200, 200, 200)
-                .addComponent(enterinterest, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(interest, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(enterinterest, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(findfriend, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(530, 530, 530)
-                .addComponent(interest, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(220, 220, 220)
+                .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jLabel1)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+    private void findfriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findfriendActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_addActionPerformed
+    }//GEN-LAST:event_findfriendActionPerformed
 
     private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
         // TODO add your handling code here:
@@ -202,6 +216,10 @@ public class addinterest extends javax.swing.JFrame {
     private void rightarrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightarrowActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rightarrowActionPerformed
+
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,6 +264,7 @@ public class addinterest extends javax.swing.JFrame {
     private javax.swing.JLabel close;
     private javax.swing.JLabel coordinate;
     private javax.swing.JTextField enterinterest;
+    private javax.swing.JButton findfriend;
     private javax.swing.JLabel gender;
     private javax.swing.JLabel interest;
     private javax.swing.JLabel jLabel1;
