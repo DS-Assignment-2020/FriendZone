@@ -5,6 +5,7 @@
  */
 package GUIpackage;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -32,6 +33,8 @@ public class SignupForm extends javax.swing.JFrame {
         ButtonGroup bg1 = new ButtonGroup();
         bg1.add(female);
         bg1.add(male);
+        female.setBackground(new Color(0,0,0,0));
+        male.setBackground(new Color(0,0,0,0));
     }
 
     /**

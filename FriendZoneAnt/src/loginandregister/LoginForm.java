@@ -40,14 +40,16 @@ public class LoginForm extends javax.swing.JFrame {
         min = new javax.swing.JLabel();
         newtofriendzone = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
-        textemail = new javax.swing.JTextField();
+        textusername = new javax.swing.JTextField();
         loginOtherAcc = new javax.swing.JLabel();
         createNewAcc = new javax.swing.JLabel();
+        email1 = new javax.swing.JLabel();
         login = new javax.swing.JButton();
         close = new javax.swing.JLabel();
-        email = new javax.swing.JLabel();
+        username = new javax.swing.JLabel();
         pass = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        textemail1 = new javax.swing.JTextField();
+        textemail = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -73,10 +75,10 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        textemail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        textemail.addActionListener(new java.awt.event.ActionListener() {
+        textusername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        textusername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textemailActionPerformed(evt);
+                textusernameActionPerformed(evt);
             }
         });
 
@@ -100,6 +102,10 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
+        email1.setFont(new java.awt.Font("Arial", 0, 30)); // NOI18N
+        email1.setForeground(new java.awt.Color(87, 96, 111));
+        email1.setText("E-mail:");
+
         login.setBackground(new java.awt.Color(52, 152, 219));
         login.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
@@ -121,92 +127,105 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        email.setFont(new java.awt.Font("Arial", 0, 30)); // NOI18N
-        email.setForeground(new java.awt.Color(87, 96, 111));
-        email.setText("E-mail:");
+        username.setFont(new java.awt.Font("Arial", 0, 30)); // NOI18N
+        username.setForeground(new java.awt.Color(87, 96, 111));
+        username.setText("Username:");
 
         pass.setFont(new java.awt.Font("Arial", 0, 30)); // NOI18N
         pass.setForeground(new java.awt.Color(87, 96, 111));
         pass.setText("Password: ");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("jLabel1");
+        textemail1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        textemail1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textemail1ActionPerformed(evt);
+            }
+        });
+
+        textemail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        textemail.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elaine Tee\\Downloads\\friend login..jpg")); // NOI18N
+        textemail.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(1730, 1730, 1730)
+                .addGap(1660, 1660, 1660)
+                .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(680, 680, 680)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(680, 680, 680)
-                .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(720, 720, 720)
-                .addComponent(newtofriendzone, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(790, 790, 790)
-                .addComponent(loginOtherAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(870, 870, 870)
-                .addComponent(createNewAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(textusername, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(680, 680, 680)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(email1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(680, 680, 680)
+                .addComponent(textemail1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(810, 810, 810)
                 .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(1660, 1660, 1660)
-                .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(790, 790, 790)
+                .addComponent(loginOtherAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(720, 720, 720)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newtofriendzone, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(createNewAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(680, 680, 680)
-                .addComponent(textemail, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(680, 680, 680)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(textemail, javax.swing.GroupLayout.PREFERRED_SIZE, 1800, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(310, 310, 310)
-                .addComponent(email)
-                .addGap(55, 55, 55)
-                .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(790, 790, 790)
-                .addComponent(newtofriendzone, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(690, 690, 690)
-                .addComponent(loginOtherAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(790, 790, 790)
-                .addComponent(createNewAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(290, 290, 290)
+                .addComponent(username)
+                .addGap(5, 5, 5)
+                .addComponent(textusername, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(email1)
+                .addGap(5, 5, 5)
+                .addComponent(textemail1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90)
+                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(loginOtherAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newtofriendzone, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createNewAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createSequentialGroup()
                 .addGap(530, 530, 530)
+                .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(570, 570, 570)
                 .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(610, 610, 610)
-                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(430, 430, 430)
-                .addComponent(textemail, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(textemail, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textemailActionPerformed
+    private void textusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textusernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textemailActionPerformed
+    }//GEN-LAST:event_textusernameActionPerformed
 
     private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
         // TODO add your handling code here:
@@ -245,10 +264,14 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
-        if(!authenticate(textemail.getText(),new String(password.getPassword()))){
+        if(!authenticate(textusername.getText(),new String(password.getPassword()))){
            LoginForm.infoBox("Incorrect email or password. Please try again", "Error");
         }
     }//GEN-LAST:event_loginActionPerformed
+
+    private void textemail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textemail1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textemail1ActionPerformed
 
     
     public static void infoBox(String infoMessage, String titleBar)
@@ -311,14 +334,16 @@ public class LoginForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel close;
     private javax.swing.JLabel createNewAcc;
-    private javax.swing.JLabel email;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel email1;
     private javax.swing.JButton login;
     private javax.swing.JLabel loginOtherAcc;
     private javax.swing.JLabel min;
     private javax.swing.JLabel newtofriendzone;
     private javax.swing.JLabel pass;
     private javax.swing.JPasswordField password;
-    private javax.swing.JTextField textemail;
+    private javax.swing.JLabel textemail;
+    private javax.swing.JTextField textemail1;
+    private javax.swing.JTextField textusername;
+    private javax.swing.JLabel username;
     // End of variables declaration//GEN-END:variables
 }
