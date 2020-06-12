@@ -120,12 +120,12 @@ public class chat extends javax.swing.JFrame {
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
         // TODO add your handling code here:
-        addinterest f=new addinterest();
-        f.setVisible(true);
-        f.pack();
-        f.setLocationRelativeTo(null);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+//        addinterest f=new addinterest();
+//        f.setVisible(true);
+//        f.pack();
+//        f.setLocationRelativeTo(null);
+//        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        this.dispose();
     }//GEN-LAST:event_backMouseClicked
 
     private void minMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minMouseClicked

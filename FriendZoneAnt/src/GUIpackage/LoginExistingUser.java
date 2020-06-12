@@ -180,15 +180,18 @@ public class LoginExistingUser extends javax.swing.JFrame {
     
      private void loginActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
-//        if(!authenticate(textemail.getText(),new String(password.getPassword()))){
-//            LoginForm.infoBox("Incorrect email or password. Please try again", "Error");
-//        }
-        addinterest c=new addinterest(email_text,username_text);
+        if(!authenticate(textemail.getText(),new String(password.getPassword()),textusername.getText())){
+            LoginForm.infoBox("Incorrect email, password or username. Please try again", "Error");
+        }else{
+        String email_text = textemail.getText();
+        String username_text = textusername.getText();
+        addinterest c=new addinterest(email_text,username_text,getGender(username_text));
         c.setVisible(true);
         c.pack();
         c.setLocationRelativeTo(null);
         c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
+        }
     } 
     
     public static void infoBox(String infoMessage, String titleBar)
@@ -196,18 +199,36 @@ public class LoginExistingUser extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
     }
     
-    private boolean authenticate(String email_text, String pass_word){
+    public String getGender(String username){
+        String gender = "";
+        try{
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
+            Statement query = conn.createStatement();
+            ResultSet rs = query.executeQuery("SELECT gender FROM signupuser WHERE email = '"+textemail.getText()+"' AND username = '"+username+"';");
+            while ( rs.next() ) {
+                gender = rs.getString("gender");
+            }
+            conn.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+        
+        return gender;
+    }
+    
+    private boolean authenticate(String email_text, String pass_word,String user){
+        boolean check;
        try{
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT password FROM signupuser WHERE email = '"+email_text+"';");
+            ResultSet rs = query.executeQuery("SELECT password,username FROM signupuser WHERE email = '"+email_text+"';");
             while ( rs.next() ) {
                 String password = rs.getString("password");
-                if(pass_word.equals(password))
+                String username = rs.getString("username");
+                if(pass_word.equals(password)&&user.equals(username))
                     return true;
-                else
-                    return false;
             }
             conn.close();
         }catch(Exception e){

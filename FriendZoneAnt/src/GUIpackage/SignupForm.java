@@ -257,7 +257,13 @@ public class SignupForm extends javax.swing.JFrame {
         }else{
             UserInfo<String,Character> signup = new UserInfo(email_text,pass_word,username_text,gender_select,newID);
             signup.storeDatabase();
-        } 
+        }
+        addinterest c=new addinterest(email_text,username_text,gender_select);
+        c.setVisible(true);
+        c.pack();
+        c.setLocationRelativeTo(null);
+        c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     } 
     
     public String checkAccount(String email_text){
