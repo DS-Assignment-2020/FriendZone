@@ -38,12 +38,11 @@ public class UserInfo<T,K> implements Info{
     public void storeDatabase() {
         try{
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
-            Connection con = DriverManager.getConnection(url, "root", "password");
-            Statement query = con.createStatement();
-            System.out.println("fdfsd");
+            Connection connection = DriverManager.getConnection(url, "root", "password");
+            Statement query = connection.createStatement();
             query.executeUpdate("INSERT INTO signupuser (email,password,username,gender,usertag,specialid) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"','A' ,'"+id+"');");
-
-            con.close();
+            
+            connection.close();
         }catch(Exception e){
             System.out.println("Error!");
         }
