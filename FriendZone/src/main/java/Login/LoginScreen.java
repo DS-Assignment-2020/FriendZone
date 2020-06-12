@@ -7,6 +7,10 @@ package Login;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Scanner;
 
 /**
@@ -89,5 +93,6 @@ public class LoginScreen {
         
         return "Sorry, your details do not exist in our database. Please sign-up for an account.";
     }
+ 
     
 }
