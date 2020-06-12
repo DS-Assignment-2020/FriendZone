@@ -37,10 +37,10 @@ public class UserInfo<T,K> implements Info{
     @Override
     public void storeDatabase() {
         try{
-            String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12346000?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-            Connection con = DriverManager.getConnection(url, "sql12346000", "n8m6PMX5x5");
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection con = DriverManager.getConnection(url, "root", "password");
             Statement query = con.createStatement();
-            query.executeUpdate("INSERT INTO signup (email,password,username,gender,userid) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"', '"+id+"');");
+            query.executeUpdate("INSERT INTO signupuser (email,password,username,gender,usertag,specialid) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"','A' ,'"+id+"');");
 
             con.close();
         }catch(Exception e){
@@ -48,21 +48,20 @@ public class UserInfo<T,K> implements Info{
         }
     }
 
-    @Override
-    public String getID() {
-        try{
-            String url = "jdbc:mysql://localhost:3306/friendzonetest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC#";
-            Connection conn = DriverManager.getConnection(url, "sql12346000", "n8m6PMX5x5");
-            Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT userid FROM signup WHERE email = '"+email.toString()+"';");
-            while ( rs.next() ) {
-                id = rs.getString("userid");
-            }
-            conn.close();
-        }catch(Exception e){
-            System.out.println("Error!");
-        }
-        return id;
-    }
+//    public String getID() {
+//        try{
+//            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+//            Connection conn = DriverManager.getConnection(url, "root", "password");
+//            Statement query = conn.createStatement();
+//            ResultSet rs = query.executeQuery("SELECT userid FROM signup WHERE email = '"+email.toString()+"';");
+//            while ( rs.next() ) {
+//                id = rs.getString("userid");
+//            }
+//            conn.close();
+//        }catch(Exception e){
+//            System.out.println("Error!");
+//        }
+//        return id;
+//    }
     
 }

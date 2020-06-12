@@ -5,6 +5,7 @@
  */
 package GUIpackage;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -32,6 +33,8 @@ public class SignupForm extends javax.swing.JFrame {
         ButtonGroup bg1 = new ButtonGroup();
         bg1.add(female);
         bg1.add(male);
+        female.setBackground(new Color(0,0,0,0));
+        male.setBackground(new Color(0,0,0,0));
     }
 
     /**
@@ -247,11 +250,11 @@ public class SignupForm extends javax.swing.JFrame {
         else
             gender_select = "?";
         
-        if(checkAccount(email_text).length()==4){
-            ExistingUser<String,Character> signup = new ExistingUser(email_text,pass_word,username_text,gender_select,checkAccount(email_text));
+        String newID = newID();
+        if(checkAccount(email_text).length()==8){
+            ExistingUser<String,Character> signup = new ExistingUser(email_text,pass_word,username_text,gender_select,newID);
             signup.storeDatabase();
         }else{
-            String newID = newID();
             UserInfo<String,Character> signup = new UserInfo(email_text,pass_word,username_text,gender_select,newID);
             signup.storeDatabase();
         } 
@@ -260,12 +263,12 @@ public class SignupForm extends javax.swing.JFrame {
     public String checkAccount(String email_text){
         String id = "";
         try{
-            String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12346000?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-            Connection conn = DriverManager.getConnection(url, "sql12346000", "n8m6PMX5x5");
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT userid FROM signup WHERE email = '"+email_text+"';");
+            ResultSet rs = query.executeQuery("SELECT specialid FROM signupuser WHERE email = '"+email_text+"';");
             while ( rs.next() ) {
-                id = rs.getString("userid");
+                id = rs.getString("specialid");
             }
             conn.close();
         }catch(Exception e){
@@ -278,12 +281,12 @@ public class SignupForm extends javax.swing.JFrame {
         String id = "";
         int bigID = 0;
         try{
-            String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12346000?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-            Connection connect = DriverManager.getConnection(url, "sql12346000", "n8m6PMX5x5");
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection connect = DriverManager.getConnection(url, "root", "password");
             Statement query = connect.createStatement();
-            ResultSet rs = query.executeQuery("SELECT userid FROM signup;");
+            ResultSet rs = query.executeQuery("SELECT specialid FROM signupuser;");
             while ( rs.next() ) {
-                id = rs.getString("userid");
+                id = rs.getString("specialid");
                 int temp = Integer.parseInt(id);
                 if(temp>bigID)
                     bigID = temp;
@@ -295,8 +298,8 @@ public class SignupForm extends javax.swing.JFrame {
         bigID +=1;
         String last_ID = Integer.toString(bigID);
         String finalID="";
-        for(int i=0;i<4;i++){
-            if(i<(4-last_ID.length())){
+        for(int i=0;i<8;i++){
+            if(i<(8-last_ID.length())){
                 finalID += "0";
             }else
                 finalID += last_ID;

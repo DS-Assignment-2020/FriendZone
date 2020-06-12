@@ -241,12 +241,12 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void loginOtherAccMouseClicked(java.awt.event.MouseEvent evt) {                                           
         // TODO add your handling code here:
-        ChooseAcc c=new ChooseAcc();
-        c.setVisible(true);
-        c.pack();
-        c.setLocationRelativeTo(null);
-        c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+//        ChooseAcc c=new ChooseAcc();
+//        c.setVisible(true);
+//        c.pack();
+//        c.setLocationRelativeTo(null);
+//        c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        this.dispose();
     }    
     
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {                                      
@@ -264,10 +264,10 @@ public class LoginForm extends javax.swing.JFrame {
     
     private boolean authenticate(String email_text, String pass_word){
        try{
-            String url = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12346000?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-            Connection conn = DriverManager.getConnection(url, "sql12346000", "n8m6PMX5x5");
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT password FROM signup WHERE email = '"+email_text+"';");
+            ResultSet rs = query.executeQuery("SELECT password FROM signupuser WHERE email = '"+email_text+"';");
             while ( rs.next() ) {
                 String password = rs.getString("password");
                 if(pass_word.equals(password))

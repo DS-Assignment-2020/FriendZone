@@ -17,6 +17,7 @@ public class LoginAndRegister {
     public static void main(String[] args) {
         // TODO code application logic here
         LoginForm form=new LoginForm();
+        //addinterest form=new addinterest();
         //form.setExtendedState(form.MAXIMIZED_BOTH);
         form.setVisible(true);
         
