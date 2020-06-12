@@ -252,6 +252,7 @@ public class SignupForm extends javax.swing.JFrame {
         
         String newID = newID();
         if(checkAccount(email_text).length()==8){
+            System.out.println("");
             ExistingUser<String,Character> signup = new ExistingUser(email_text,pass_word,username_text,gender_select,newID);
             signup.storeDatabase();
         }else{

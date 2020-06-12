@@ -40,6 +40,7 @@ public class UserInfo<T,K> implements Info{
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection con = DriverManager.getConnection(url, "root", "password");
             Statement query = con.createStatement();
+            System.out.println("fdfsd");
             query.executeUpdate("INSERT INTO signupuser (email,password,username,gender,usertag,specialid) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"','A' ,'"+id+"');");
 
             con.close();

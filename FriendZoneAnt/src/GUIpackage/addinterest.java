@@ -141,7 +141,8 @@ public class addinterest extends javax.swing.JFrame {
 
         interest.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         interest.setForeground(new java.awt.Color(102, 102, 102));
-        interest.setText("interest");
+        
+        interest.setText("Interests: "+getInterest(getSpecialID(email,username)));
         
 
         add.setBackground(new java.awt.Color(255, 255, 204));
@@ -186,7 +187,7 @@ public class addinterest extends javax.swing.JFrame {
                 .addComponent(rightarrow, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(440, 440, 440)
-                .addComponent(interest, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(interest, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(360, 360, 360)
                 .addComponent(enterinterest, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,6 +234,32 @@ public class addinterest extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public String getInterest(String specialID){
+        String interests = "";
+        try{
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
+            Statement query = conn.createStatement();
+            ResultSet rs = query.executeQuery("SELECT interest FROM interestexample WHERE specialid = '"+specialID+"';");
+            while ( rs.next() ) {
+                String interest = rs.getString("interest");
+                String uppercaseLetter = interest.substring(0,1).toUpperCase();
+                String uppercaseInterest = uppercaseLetter + interest.substring(1);
+                interests += uppercaseInterest+",";
+            }
+            conn.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+        
+        if(interests.length()!=0){
+        StringBuilder minat = new StringBuilder(interests);
+        minat.deleteCharAt(interests.length()-1);
+        return minat.toString();
+        }else
+            return "";
+    }
 
     private void findfriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findfriendActionPerformed
         // TODO add your handling code here:
