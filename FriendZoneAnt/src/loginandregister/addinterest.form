@@ -25,45 +25,53 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="1790" pref="1790" max="-2" attributes="0"/>
-              <Component id="min" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="close" min="-2" pref="50" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="440" pref="440" max="-2" attributes="0"/>
-              <Component id="Name" min="-2" pref="390" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-              <Component id="leftarrow" min="-2" pref="300" max="-2" attributes="0"/>
-              <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="coordinate" min="-2" pref="400" max="-2" attributes="0"/>
-                  <Component id="About" min="-2" pref="250" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="1790" pref="1790" max="-2" attributes="0"/>
+                      <Component id="min" min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                      <Component id="close" min="-2" pref="50" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="440" pref="440" max="-2" attributes="0"/>
+                      <Component id="Name" min="-2" pref="390" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="leftarrow" min="-2" pref="120" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="coordinate" min="-2" pref="400" max="-2" attributes="0"/>
+                          <Component id="About" min="-2" pref="250" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="690" pref="690" max="-2" attributes="0"/>
+                      <Component id="rightarrow" min="-2" pref="310" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="440" pref="440" max="-2" attributes="0"/>
+                      <Component id="interest" min="-2" pref="610" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="389" pref="389" max="-2" attributes="0"/>
+                      <Component id="enterinterest" min="-2" pref="850" max="-2" attributes="0"/>
+                      <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
+                      <Component id="add" min="-2" pref="230" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="730" pref="730" max="-2" attributes="0"/>
+                      <Component id="findfriend" min="-2" pref="450" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="900" pref="900" max="-2" attributes="0"/>
+                      <Component id="gender" min="-2" pref="200" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="690" pref="690" max="-2" attributes="0"/>
-              <Component id="rightarrow" min="-2" pref="310" max="-2" attributes="0"/>
+              <EmptySpace min="16" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="440" pref="440" max="-2" attributes="0"/>
-              <Component id="interest" min="-2" pref="610" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <Component id="jLabel1" pref="0" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="389" pref="389" max="-2" attributes="0"/>
-              <Component id="enterinterest" min="-2" pref="850" max="-2" attributes="0"/>
-              <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
-              <Component id="add" min="-2" pref="230" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="730" pref="730" max="-2" attributes="0"/>
-              <Component id="findfriend" min="-2" pref="450" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="900" pref="900" max="-2" attributes="0"/>
-              <Component id="gender" min="-2" pref="200" max="-2" attributes="0"/>
-          </Group>
-          <Component id="jLabel1" min="-2" pref="1920" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -78,10 +86,6 @@
               <Component id="Name" min="-2" pref="70" max="-2" attributes="0"/>
               <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                      <Component id="leftarrow" min="-2" pref="80" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <Component id="coordinate" min="-2" pref="80" max="-2" attributes="0"/>
                       <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
@@ -106,7 +110,11 @@
               <EmptySpace min="220" pref="220" max="-2" attributes="0"/>
               <Component id="gender" min="-2" pref="70" max="-2" attributes="0"/>
           </Group>
-          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="435" max="-2" attributes="0"/>
+              <Component id="leftarrow" min="-2" pref="49" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -263,7 +271,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Elaine Tee\Documents\NetBeansProjects\DSassignment\FriendZone\FriendZoneAnt\interest.jpg"/>
+          <Image iconType="2" name="C:\Users\Owner\Documents\NetBeansProjects\FriendZone\FriendZoneAnt\interest.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>

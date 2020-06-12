@@ -323,7 +323,7 @@ public class SignupForm extends javax.swing.JFrame {
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {                                  
         // TODO add your handling code here:
-        LoginForm f = new LoginForm();
+        LoginExistingUser f = new LoginExistingUser();
         f.setVisible(true);
         f.pack();
         f.setLocationRelativeTo(null);

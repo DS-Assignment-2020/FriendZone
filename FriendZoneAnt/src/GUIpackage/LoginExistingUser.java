@@ -5,7 +5,13 @@
  */
 package GUIpackage;
 
+import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +22,9 @@ public class LoginExistingUser extends javax.swing.JFrame {
     /**
      * Creates new form LoginExistingUser
      */
+    String email_text = "";
+    String username_text = "";
+    
     public LoginExistingUser() {
         initComponents();
     }
@@ -56,7 +65,7 @@ public class LoginExistingUser extends javax.swing.JFrame {
 
         username.setFont(new java.awt.Font("Arial", 0, 30)); // NOI18N
         username.setForeground(new java.awt.Color(87, 96, 111));
-        username.setText("New username:");
+        username.setText("Username:");
 
         textusername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
@@ -76,6 +85,11 @@ public class LoginExistingUser extends javax.swing.JFrame {
         login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("Log In");
         login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
 
         back.setBackground(new java.awt.Color(0, 0, 0));
         back.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
@@ -162,7 +176,46 @@ public class LoginExistingUser extends javax.swing.JFrame {
 
     private void textemailActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
-    }                                         
+    }
+    
+     private void loginActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // TODO add your handling code here:
+//        if(!authenticate(textemail.getText(),new String(password.getPassword()))){
+//            LoginForm.infoBox("Incorrect email or password. Please try again", "Error");
+//        }
+        addinterest c=new addinterest(email_text,username_text);
+        c.setVisible(true);
+        c.pack();
+        c.setLocationRelativeTo(null);
+        c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    } 
+    
+    public static void infoBox(String infoMessage, String titleBar)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private boolean authenticate(String email_text, String pass_word){
+       try{
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
+            Statement query = conn.createStatement();
+            ResultSet rs = query.executeQuery("SELECT password FROM signupuser WHERE email = '"+email_text+"';");
+            while ( rs.next() ) {
+                String password = rs.getString("password");
+                if(pass_word.equals(password))
+                    return true;
+                else
+                    return false;
+            }
+            conn.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+       
+        return false; 
+    }
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
@@ -170,7 +223,7 @@ public class LoginExistingUser extends javax.swing.JFrame {
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {                                  
         // TODO add your handling code here:
-        ChooseAcc c=new ChooseAcc();
+        SignupForm c=new SignupForm();
         c.setVisible(true);
         c.pack();
         c.setLocationRelativeTo(null);

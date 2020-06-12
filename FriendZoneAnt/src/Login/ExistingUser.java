@@ -29,7 +29,7 @@ public class ExistingUser<T,K>{
         this.gender=gender;
     }
 
-    public void storeText() {
+    public void storeDatabase() {
         try{
             PrintWriter store = new PrintWriter(new FileOutputStream("Database.txt", true));
             store.print(email+" "+password+" "+username+" "+gender+" "+id+"\n");

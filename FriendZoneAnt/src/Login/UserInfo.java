@@ -30,7 +30,7 @@ public class UserInfo<T,K> implements Info{
     }
 
     @Override
-    public void storeText() {
+    public void storeDatabase() {
         try{
             PrintWriter store = new PrintWriter(new FileOutputStream("Database.txt", true));
             store.print(email+" "+password+" "+username+" "+gender+" "+id+"\n");
@@ -40,7 +40,7 @@ public class UserInfo<T,K> implements Info{
         }
     }
 
-    @Override
+   
     public String getID() {
         int lastID = 0;
         try{

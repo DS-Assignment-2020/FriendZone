@@ -11,7 +11,6 @@ package Login;
  */
 public interface Info {
     
-    public void storeText();
+    public void storeDatabase();
     
-    public String getID();
 }

@@ -24,41 +24,41 @@ public class LoginScreen {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.print("Sign Up/Login\n[S/L] ");
-        Scanner a = new Scanner(System.in);
-        Scanner b = new Scanner(System.in);
-        Scanner c = new Scanner(System.in);
-        Scanner d = new Scanner(System.in);
-        Scanner e = new Scanner(System.in);
-        Character input = a.next().charAt(0);
-        if(input=='S'||input=='s'){
-            System.out.print("E-mail: ");
-            String email = a.next();
-            System.out.print("Username: ");
-            String username = b.nextLine();
-            System.out.print("Password: ");
-            String password = c.next();
-            System.out.print("Gender: ");
-            Character gender = e.next().charAt(0);
-            UserInfo<String,Character> user = new UserInfo(email,password,username,gender);
-            user.storeText();
-            
-        }else if(input=='L'||input=='l'){
-            System.out.print("E-mail: ");
-            String email = d.nextLine();
-            System.out.print("Password: ");
-            String password = b.next();
-            System.out.print("New Username: ");
-            String new_username = c.nextLine();
-            System.out.print("Gender: ");
-            Character gender = e.next().charAt(0);
-            String userID = checkLogin(email,password);
-            if(userID.length()==4){
-               ExistingUser user = new ExistingUser(email,password,new_username,gender,userID);
-               user.storeText();
-            }else
-                System.out.println(userID);
-        }
+//        System.out.print("Sign Up/Login\n[S/L] ");
+//        Scanner a = new Scanner(System.in);
+//        Scanner b = new Scanner(System.in);
+//        Scanner c = new Scanner(System.in);
+//        Scanner d = new Scanner(System.in);
+//        Scanner e = new Scanner(System.in);
+//        Character input = a.next().charAt(0);
+//        if(input=='S'||input=='s'){
+//            System.out.print("E-mail: ");
+//            String email = a.next();
+//            System.out.print("Username: ");
+//            String username = b.nextLine();
+//            System.out.print("Password: ");
+//            String password = c.next();
+//            System.out.print("Gender: ");
+//            Character gender = e.next().charAt(0);
+//            UserInfo<String,Character> user = new UserInfo(email,password,username,gender);
+//            user.storeText();
+//            
+//        }else if(input=='L'||input=='l'){
+//            System.out.print("E-mail: ");
+//            String email = d.nextLine();
+//            System.out.print("Password: ");
+//            String password = b.next();
+//            System.out.print("New Username: ");
+//            String new_username = c.nextLine();
+//            System.out.print("Gender: ");
+//            Character gender = e.next().charAt(0);
+//            String userID = checkLogin(email,password);
+//            if(userID.length()==4){
+//               ExistingUser user = new ExistingUser(email,password,new_username,gender,userID);
+//               user.storeText();
+//            }else
+//                System.out.println(userID);
+//        }
     }
     
     public static String checkLogin(String email,String password){
