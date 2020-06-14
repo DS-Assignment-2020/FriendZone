@@ -302,10 +302,12 @@ public class SignupForm extends javax.swing.JFrame {
             System.out.println("Error!");
         }
         bigID +=1;
+        System.out.println(bigID);
         String last_ID = Integer.toString(bigID);
+        System.out.println(last_ID.length());
         String finalID="";
+        int j=0;
         for(int i=0;i<8;i++){
-            int j=0;
             if(i<(8-last_ID.length())){
                 finalID += "0";
             }else{

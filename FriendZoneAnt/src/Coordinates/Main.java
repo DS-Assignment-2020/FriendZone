@@ -17,6 +17,7 @@ import java.util.LinkedList;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class Main {
 
     static final int MAX_r = 5000; //distance unit in meter
