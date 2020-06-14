@@ -50,7 +50,63 @@ public class mainInterest {
 String[] list = {"movie", "travelling", "exercise", "dancing", "cooking", 
                  "outdoor activities", "pets", "sports", "art", "music", "learning"};
 
+            //ll for user(fix) - interests
+            //another ll client(new user) - interests
+            //Linekdlist for user(fixed)
+            LinkedList owner = new LinkedList();
             
+            System.out.print("\nOwner : ");
+            String[] str = sc.nextLine().split(" ");
+            for (int i = 0; i < str.length; i++) {
+                int num = Integer.parseInt(str[i]);
+            owner.add(list[num-1]);
+            }
+            System.out.print("Owner : ");
+            System.out.println(owner.toString());
+
+
+            //tiap kali loop,user baru,store interest,compare,print,clear
+            
+            int user = 4;
+            String[] ari=new String[user];
+            LinkedList client = new LinkedList();
+            int a = 0;
+            //loop berapa user
+            String string="";
+            String org = "";
+            String[] keep = new String[user];
+            for (int i = 0; i < user; i++) {
+                a++;
+                
+                System.out.print("User "+a+" : ");
+                org = "User "+a;
+                keep[i] = org;
+                //loop utk minta interest
+                String[] str1 = sc.nextLine().split(" ");
+                for (int j = 0; j < str1.length; j++) {
+                int num = Integer.parseInt(str1[j]);
+                client.add(list[num-1]);
+            } 
+                System.out.println("user "+a+" : "+client.toString());
+                System.out.println("Interest count with user "+(a) + " : " + isSame(owner, client));
+                string="User "+a+":"+isSame(owner, client);
+                ari[i]=string;      //{"user 1: 3", "user 2 : 1"}
+                client.clear();
+            }
+            
+             
+            int[] bosq=new int[user];
+            int max=0;
+            for (int i = 0; i < user; i++) {
+            String[] v = ari[i].split(":");     //take count je
+            bosq[i]=Integer.parseInt(v[1]);
+            
+        }
+            System.out.print("Sorted user : ");
+            for (int i = 0; i < user; i++) {
+                bubbleSort1(bosq,keep);
+                System.out.print(keep[i]+", ");
+        }
             
             //apez
             /*
@@ -86,7 +142,7 @@ String[] list = {"movie", "travelling", "exercise", "dancing", "cooking",
             */
             
             //asal boleh je
-            
+            /*
             LinkedList ll = new LinkedList();
             LinkedList ll2 = new LinkedList();
             LinkedList ll3 = new LinkedList();
@@ -148,9 +204,27 @@ String[] list = {"movie", "travelling", "exercise", "dancing", "cooking",
             user[1] = "user 3";
             user[2] = "user 4";
             bubbleSort(user,copyList(kira));
-           
+           */
             }
-
+    public static int[] bubbleSort1(int arr[],String[] a){
+        int n = arr.length; 
+        for (int i = 0; i < n-1; i++) {
+            for (int j = 0; j < n-i-1; j++) {
+                if (arr[j] < arr[j+1]) 
+                { 
+                    // swap arr[j+1] and arr[i] 
+                    int temp = arr[j]; 
+                    arr[j] = arr[j+1]; 
+                    arr[j+1] = temp; 
+                    
+                    String temp1 = a[j];
+                 a[j]=a[j+1];
+                 a[j+1]=temp1;
+                }
+    }
+    }
+        return arr;
+      }
     
     public static String changeName(String[] a){
         for (int i = 0; i < a.length; i++) {
@@ -210,7 +284,7 @@ String[] list = {"movie", "travelling", "exercise", "dancing", "cooking",
         for (int i = 0; i < a.size(); i++) {
             hobby = (String) a.get(i);
             if(b.contains(hobby))
-                count+=2;
+                count++;
         }
         return count;
     }
