@@ -230,7 +230,7 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void createNewAccMouseClicked(java.awt.event.MouseEvent evt) {                                          
         // TODO add your handling code here:
-        SignupForm f=new SignupForm();
+        OldSignUpForm f=new OldSignUpForm();
         f.setVisible(true);
         f.pack();
         f.setLocationRelativeTo(null);

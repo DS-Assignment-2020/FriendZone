@@ -18,13 +18,13 @@ import javax.swing.JFrame;
  *
  * @author user
  */
-public class SignupForm extends javax.swing.JFrame {
+public class OldSignUpForm extends javax.swing.JFrame {
 
     /**
      * Creates new form SignupForm
      */
 
-    public SignupForm() {
+    public OldSignUpForm() {
         initComponents();
         groupButton();
     }
@@ -60,6 +60,7 @@ public class SignupForm extends javax.swing.JFrame {
         close = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
+        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -142,7 +143,7 @@ public class SignupForm extends javax.swing.JFrame {
             }
         });
 
-        background.setIcon(new javax.swing.ImageIcon("friendzone (signup)..jpg")); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon("friendzone(signup).jpg")); // NOI18N
         background.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -251,19 +252,19 @@ public class SignupForm extends javax.swing.JFrame {
             gender_select = "?";
         
         String newID = newID();
-        if(checkAccount(email_text).length()==8){
-            ExistingUser<String,Character> signup = new ExistingUser(email_text,pass_word,username_text,gender_select,newID);
-            signup.storeDatabase();
-        }else{
-            UserInfo<String,Character> signup = new UserInfo(email_text,pass_word,username_text,gender_select,newID);
-            signup.storeDatabase();
-        }
-        addinterest c=new addinterest(email_text,username_text,gender_select);
-        c.setVisible(true);
-        c.pack();
-        c.setLocationRelativeTo(null);
-        c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+//        if(checkAccount(email_text).length()==8){
+//            ExistingUser<String,Character> signup = new ExistingUser(email_text,pass_word,username_text,gender_select,newID);
+//            signup.storeDatabase();
+//        }else{
+//            UserInfo<String,Character> signup = new UserInfo(email_text,pass_word,username_text,gender_select,newID);
+//            signup.storeDatabase();
+//        }
+//        addinterest c=new addinterest(email_text,username_text,gender_select);
+//        c.setVisible(true);
+//        c.pack();
+//        c.setLocationRelativeTo(null);
+//        c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        this.dispose();
     } 
     
     public String checkAccount(String email_text){
@@ -359,20 +360,21 @@ public class SignupForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SignupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OldSignUpForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SignupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OldSignUpForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SignupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OldSignUpForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SignupForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OldSignUpForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SignupForm().setVisible(true);
+                new OldSignUpForm().setVisible(true);
             }
         });
     }

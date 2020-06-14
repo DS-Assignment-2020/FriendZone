@@ -28,11 +28,15 @@ public class addinterest extends javax.swing.JFrame {
     String email;
     String username;
     String user_gender;
+    String location;
+    double latitude;
+    double longitude;
     
-    public addinterest(String email,String username,String user_gender) {
+    public addinterest(String email,String username,String user_gender,String location) {
         this.email=email;
         this.username=username;
         this.user_gender=user_gender;
+        this.location=location;
         initComponents();
         this.setLocationRelativeTo(null);
         findfriend.setBackground(new Color(0,0,0,0));
@@ -155,8 +159,8 @@ public class addinterest extends javax.swing.JFrame {
             }
         });
 
-        coordinate.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        coordinate.setText("coordinate");
+        coordinate.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        coordinate.setText("Location: "+location);
 
 //        About.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 //        About.setText("About XXX");
@@ -181,7 +185,7 @@ public class addinterest extends javax.swing.JFrame {
                 .addComponent(leftarrow, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(140, 140, 140)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(coordinate, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(coordinate, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE))
 //                    .addComponent(About, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(640, 640, 640)
                 .addComponent(rightarrow, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -281,8 +285,8 @@ public class addinterest extends javax.swing.JFrame {
         // TODO add your handling code here:
         String usertag = getLeftTag(email,getSpecialID(email,username));
         if(usertag.length()==1){
-            String new_username = getUsername(usertag);
-            addinterest c=new addinterest(email,new_username,user_gender);
+            String [] user_loc = getUsername(usertag);
+            addinterest c=new addinterest(email,user_loc[0],user_gender,user_loc[1]);
             c.setVisible(true);
             c.pack();
             c.setLocationRelativeTo(null);
@@ -291,21 +295,22 @@ public class addinterest extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_leftarrowActionPerformed
     
-    public String getUsername(String usertag){
-        String username = "";
+    public String[] getUsername(String usertag){
+        String [] array = new String[2];
         try{
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT username FROM signupuser WHERE email = '"+email+"' AND usertag = '"+usertag+"';");
+            ResultSet rs = query.executeQuery("SELECT username, location FROM signup WHERE email = '"+email+"' AND usertag = '"+usertag+"';");
             while ( rs.next() ) {
-                username = rs.getString("username");
+                array[0] = rs.getString("username");
+                array[1] = rs.getString("location");
             }
             conn.close();
         }catch(Exception e){
             System.out.println("Error!");
         }
-        return username;
+        return array;
     }
     
     public String getLeftTag(String email, String specialID){
@@ -314,7 +319,7 @@ public class addinterest extends javax.swing.JFrame {
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT usertag FROM signupuser WHERE email = '"+email+"' AND specialid = '"+specialID+"';");
+            ResultSet rs = query.executeQuery("SELECT usertag FROM signup WHERE email = '"+email+"' AND specialid = '"+specialID+"';");
             while ( rs.next() ) {
                 usertag = rs.getString("usertag");
             }
@@ -336,8 +341,8 @@ public class addinterest extends javax.swing.JFrame {
         // TODO add your handling code here:
         String usertag = getRightTag(email,getSpecialID(email,username));
         if(usertag.length()==1){
-            String new_username = getUsername(usertag);
-            addinterest c=new addinterest(email,new_username,user_gender);
+            String [] user_loc = getUsername(usertag);
+            addinterest c=new addinterest(email,user_loc[0],user_gender,user_loc[1]);
             c.setVisible(true);
             c.pack();
             c.setLocationRelativeTo(null);
@@ -352,7 +357,7 @@ public class addinterest extends javax.swing.JFrame {
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT usertag FROM signupuser WHERE email = '"+email+"' AND specialid = '"+specialID+"';");
+            ResultSet rs = query.executeQuery("SELECT usertag FROM signup WHERE email = '"+email+"' AND specialid = '"+specialID+"';");
             while ( rs.next() ) {
                 usertag = rs.getString("usertag");
             }
@@ -391,7 +396,7 @@ public class addinterest extends javax.swing.JFrame {
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT specialid FROM signupuser WHERE email = '"+email+"' AND username = '"+username+"';");
+            ResultSet rs = query.executeQuery("SELECT specialid FROM signup WHERE email = '"+email+"' AND username = '"+username+"';");
             while ( rs.next() ) {
                 specialID = rs.getString("specialid");
             }
@@ -449,7 +454,8 @@ public class addinterest extends javax.swing.JFrame {
                 String email = "";
                 String password = "";
                 String user_gender = "";
-                new addinterest(email,password,user_gender).setVisible(true);
+                String location = "";
+                new addinterest(email,password,user_gender,location).setVisible(true);
             }
         });
     }

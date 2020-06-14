@@ -185,7 +185,7 @@ public class LoginExistingUser extends javax.swing.JFrame {
         }else{
         String email_text = textemail.getText();
         String username_text = textusername.getText();
-        addinterest c=new addinterest(email_text,username_text,getGender(username_text));
+        addinterest c=new addinterest(email_text,username_text,getGender(username_text),getLocation(username_text));
         c.setVisible(true);
         c.pack();
         c.setLocationRelativeTo(null);
@@ -205,7 +205,7 @@ public class LoginExistingUser extends javax.swing.JFrame {
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT gender FROM signupuser WHERE email = '"+textemail.getText()+"' AND username = '"+username+"';");
+            ResultSet rs = query.executeQuery("SELECT gender FROM signup WHERE email = '"+textemail.getText()+"' AND username = '"+username+"';");
             while ( rs.next() ) {
                 gender = rs.getString("gender");
             }
@@ -217,13 +217,31 @@ public class LoginExistingUser extends javax.swing.JFrame {
         return gender;
     }
     
+    public String getLocation(String username){
+        String loc = "";
+        try{
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
+            Statement query = conn.createStatement();
+            ResultSet rs = query.executeQuery("SELECT location FROM signup WHERE email = '"+textemail.getText()+"' AND username = '"+username+"';");
+            while ( rs.next() ) {
+                loc = rs.getString("location");
+            }
+            conn.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+        System.out.println(loc);
+        return loc;
+    }
+    
     private boolean authenticate(String email_text, String pass_word,String user){
         boolean check;
        try{
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT password,username FROM signupuser WHERE email = '"+email_text+"';");
+            ResultSet rs = query.executeQuery("SELECT password,username FROM signup WHERE email = '"+email_text+"';");
             while ( rs.next() ) {
                 String password = rs.getString("password");
                 String username = rs.getString("username");
@@ -244,7 +262,7 @@ public class LoginExistingUser extends javax.swing.JFrame {
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {                                  
         // TODO add your handling code here:
-        SignupForm c=new SignupForm();
+        OldSignUpForm c=new OldSignUpForm();
         c.setVisible(true);
         c.pack();
         c.setLocationRelativeTo(null);

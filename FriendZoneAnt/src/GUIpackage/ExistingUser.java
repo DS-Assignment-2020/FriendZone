@@ -23,16 +23,17 @@ import java.util.Scanner;
  */
 public class ExistingUser<T,K>{
     
-   private T email, username, password, id;
+   private T email, username, password, id, location;
    private String usertag = "";
    private K gender;
     
-    public ExistingUser(T email, T password, T username,K gender,T id){
+    public ExistingUser(T email, T password, T username,K gender,T id,T location){
         this.username=username;
         this.email=email;
         this.password=password;
         this.id=id;
         this.gender=gender;
+        this.location=location;
     }
 
    public void storeDatabase() {
@@ -41,7 +42,7 @@ public class ExistingUser<T,K>{
             Connection con = DriverManager.getConnection(url, "root", "password");
             Statement query = con.createStatement();
             usertag += userTag();
-            query.executeUpdate("INSERT INTO signupuser (email,password,username,gender,usertag,specialid) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"', '"+usertag+"', '"+id.toString()+"');");
+            query.executeUpdate("INSERT INTO signup (email,password,username,gender,usertag,specialid,location) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"', '"+usertag+"', '"+id.toString()+"', '"+location.toString()+"');");
 
             con.close();
         }catch(Exception e){
@@ -55,7 +56,7 @@ public class ExistingUser<T,K>{
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT usertag FROM signupuser WHERE email = '"+email.toString()+"';");
+            ResultSet rs = query.executeQuery("SELECT usertag FROM signup WHERE email = '"+email.toString()+"';");
             while(rs.next()){
                 String temp = rs.getString("usertag");
                 if(temp.charAt(0)>newtag.charAt(0))

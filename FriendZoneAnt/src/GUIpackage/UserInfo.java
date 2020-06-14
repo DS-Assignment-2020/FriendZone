@@ -23,15 +23,16 @@ import java.util.Scanner;
  * @author Owner
  */
 public class UserInfo<T,K> implements Info{
-    private T email, username, password, gender;
+    private T email, username, password, gender, location;
     private String id;
     
-    public UserInfo(T email, T password, T username,T gender,String id){
+    public UserInfo(T email, T password, T username,T gender,String id, T location){
         this.username=username;
         this.email=email;
         this.password=password;
         this.gender=gender;
         this.id=id;
+        this.location=location;
     }
 
     @Override
@@ -40,7 +41,7 @@ public class UserInfo<T,K> implements Info{
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection connection = DriverManager.getConnection(url, "root", "password");
             Statement query = connection.createStatement();
-            query.executeUpdate("INSERT INTO signupuser (email,password,username,gender,usertag,specialid) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"','A' ,'"+id+"');");
+            query.executeUpdate("INSERT INTO signup (email,password,username,gender,usertag,specialid,location) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"','A' ,'"+id+"', '"+location.toString()+"');");
             
             connection.close();
         }catch(Exception e){
