@@ -37,7 +37,7 @@ public class addinterest extends javax.swing.JFrame {
         this.username=username;
         this.user_gender=user_gender;
         this.location=location;
-        initComponents();
+        initComponents(username);
         this.setLocationRelativeTo(null);
         findfriend.setBackground(new Color(0,0,0,0));
         leftarrow.setBackground(new Color(0,0,0,0));
@@ -51,7 +51,7 @@ public class addinterest extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents(String username) {
 
         close = new javax.swing.JLabel();
         min = new javax.swing.JLabel();
@@ -126,15 +126,17 @@ public class addinterest extends javax.swing.JFrame {
         });
 
         Name.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+
         String [] user_array = username.split(" ");
         String [] user_capitalise = new String[user_array.length];
         for(int i=0;i<user_array.length;i++){
-            if(user_array.length==1)
-                break;
             String uppercaseletter = user_array[i].substring(0,1).toUpperCase();
+            System.out.println(uppercaseletter);
             user_capitalise[i] = uppercaseletter + user_array[i].substring(1);
         }
         String full_username = "";
+        System.out.println(user_array.length);
+        System.out.println(user_capitalise[0]);
         for(int i=0;i<user_array.length;i++){
          full_username += user_capitalise[i] + " ";   
         }
