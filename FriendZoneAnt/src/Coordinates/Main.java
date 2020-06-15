@@ -20,7 +20,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    static final int MAX_r = 5000; //distance unit in meter
+  static final int MAX_r = 5000; //distance unit in meter
 
     public static void main(String[] args) throws IOException {
 
@@ -139,4 +139,4 @@ public class Main {
         return userWithinCertainRange;
     }
 
-}
+}  
