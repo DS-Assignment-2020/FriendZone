@@ -25,85 +25,107 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="1662" max="-2" attributes="0"/>
-              <Component id="min" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="1680" pref="1680" max="-2" attributes="0"/>
+              <Component id="min" min="-2" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="1500" pref="1500" max="-2" attributes="0"/>
+              <Component id="num" min="-2" pref="140" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="370" pref="370" max="-2" attributes="0"/>
+              <Component id="chat" min="-2" pref="190" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="1210" pref="1210" max="-2" attributes="0"/>
+              <Component id="search" min="-2" pref="220" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="819" pref="819" max="-2" attributes="0"/>
+              <Component id="rightarrow" min="-2" pref="75" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="1741" pref="1741" max="-2" attributes="0"/>
               <Component id="close" min="-2" pref="50" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="900" pref="900" max="-2" attributes="0"/>
-              <Component id="gender" min="-2" pref="200" max="-2" attributes="0"/>
+              <EmptySpace min="360" pref="360" max="-2" attributes="0"/>
+              <Component id="interest" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="220" pref="220" max="-2" attributes="0"/>
-              <Component id="leftarrow" min="-2" pref="80" max="-2" attributes="0"/>
-              <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="coordinate" min="-2" pref="400" max="-2" attributes="0"/>
-                  <Component id="About" min="-2" pref="250" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="640" pref="640" max="-2" attributes="0"/>
-              <Component id="rightarrow" min="-2" pref="90" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="440" pref="440" max="-2" attributes="0"/>
-              <Component id="interest" min="-2" pref="610" max="-2" attributes="0"/>
+              <EmptySpace min="1500" pref="1500" max="-2" attributes="0"/>
+              <Component id="matches" min="-2" pref="140" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="360" pref="360" max="-2" attributes="0"/>
-              <Component id="enterinterest" min="-2" pref="850" max="-2" attributes="0"/>
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="add" min="-2" pref="180" max="-2" attributes="0"/>
+              <Component id="username" min="-2" pref="380" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="690" pref="690" max="-2" attributes="0"/>
-              <Component id="findfriend" min="-2" pref="420" max="-2" attributes="0"/>
+              <EmptySpace min="360" pref="360" max="-2" attributes="0"/>
+              <Component id="location" min="-2" pref="350" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="440" pref="440" max="-2" attributes="0"/>
-              <Component id="Name" min="-2" pref="390" max="-2" attributes="0"/>
+              <EmptySpace min="1500" pref="1500" max="-2" attributes="0"/>
+              <Component id="distance" min="-2" pref="140" max="-2" attributes="0"/>
           </Group>
-          <Component id="bg" min="-2" pref="1800" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="68" pref="68" max="-2" attributes="0"/>
+              <Component id="leftarrow" min="-2" pref="84" max="-2" attributes="0"/>
+          </Group>
+          <Component id="bg" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="close" min="-2" pref="50" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="min" min="-2" pref="35" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="150" pref="150" max="-2" attributes="0"/>
-              <Component id="gender" min="-2" pref="70" max="-2" attributes="0"/>
-              <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="leftarrow" min="-2" pref="130" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="coordinate" min="-2" pref="80" max="-2" attributes="0"/>
-                      <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                      <Component id="About" min="-2" pref="60" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="rightarrow" min="-2" pref="120" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-              <Component id="interest" min="-2" pref="110" max="-2" attributes="0"/>
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="enterinterest" min="-2" pref="80" max="-2" attributes="0"/>
-                  <Component id="add" min="-2" pref="80" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-              <Component id="findfriend" min="-2" pref="90" max="-2" attributes="0"/>
+              <Component id="min" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="220" pref="220" max="-2" attributes="0"/>
-              <Component id="Name" min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace min="320" pref="320" max="-2" attributes="0"/>
+              <Component id="num" min="-2" pref="60" max="-2" attributes="0"/>
           </Group>
-          <Component id="bg" min="-2" pref="1020" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="800" pref="800" max="-2" attributes="0"/>
+              <Component id="chat" min="-2" pref="50" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="680" pref="680" max="-2" attributes="0"/>
+              <Component id="search" min="-2" pref="60" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="430" pref="430" max="-2" attributes="0"/>
+              <Component id="rightarrow" min="-2" pref="114" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+              <Component id="close" min="-2" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="630" pref="630" max="-2" attributes="0"/>
+              <Component id="interest" min="-2" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="550" pref="550" max="-2" attributes="0"/>
+              <Component id="matches" min="-2" pref="60" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="330" pref="330" max="-2" attributes="0"/>
+              <Component id="username" min="-2" pref="70" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="470" pref="470" max="-2" attributes="0"/>
+              <Component id="location" min="-2" pref="70" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="430" pref="430" max="-2" attributes="0"/>
+              <Component id="distance" min="-2" pref="60" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="434" pref="434" max="-2" attributes="0"/>
+              <Component id="leftarrow" min="-2" pref="109" max="-2" attributes="0"/>
+          </Group>
+          <Component id="bg" min="-2" pref="1010" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -116,7 +138,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Black" size="40" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="X"/>
+        <Property name="text" type="java.lang.String" value=" X"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Hand Cursor"/>
         </Property>
@@ -139,6 +161,25 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="minMouseClicked"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JButton" name="search">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="db" green="98" red="34" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="24" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchActionPerformed"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JButton" name="leftarrow">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -156,25 +197,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="leftarrowActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="findfriend">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="db" green="98" red="34" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="24" style="1"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Hand Cursor"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="findfriendActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="rightarrow">
@@ -196,30 +218,20 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rightarrowActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="enterinterest">
+    <Component class="javax.swing.JLabel" name="username">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="36" style="0"/>
+          <Font name="Tahoma" size="24" style="0"/>
         </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enterinterestActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="Name">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="36" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="name,age"/>
+        <Property name="text" type="java.lang.String" value="username"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="gender">
+    <Component class="javax.swing.JLabel" name="location">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="36" style="0"/>
+          <Font name="Tahoma" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="gender"/>
+        <Property name="text" type="java.lang.String" value="location"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="interest">
@@ -227,51 +239,55 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="24" style="0"/>
         </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="interest"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="add">
+    <Component class="javax.swing.JLabel" name="num">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="40" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="matches">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="40" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="distance">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="40" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="chat">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="ff" red="ff" type="rgb"/>
+          <Color blue="ff" green="ff" red="cc" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Add interest"/>
+        <Property name="text" type="java.lang.String" value="Chat "/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Hand Cursor"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chatActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="coordinate">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="24" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="coordinate"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="About">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="24" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="About XXX"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="bg">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="(new javax.swing.ImageIcon(&quot;interest.jpg&quot;))" type="code"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\Elaine Tee\Documents\NetBeansProjects\DSassignment\FriendZone\FriendZoneAnt\pplnearby.jpg"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -133,7 +133,7 @@ public class addinterest extends javax.swing.JFrame {
         About.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         About.setText("About XXX");
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginandregister/interest.jpg"))); // NOI18N
+        bg.setIcon((new javax.swing.ImageIcon("interest.jpg")));
         bg.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
