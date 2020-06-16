@@ -128,7 +128,7 @@ public class pplNearby extends javax.swing.JFrame {
             }
         });
 
-        bg.setIcon(new javax.swing.ImageIcon("C:\\Users\\Elaine Tee\\Documents\\NetBeansProjects\\DSassignment\\FriendZone\\FriendZoneAnt\\pplnearby.jpg")); // NOI18N
+        bg.setIcon((new javax.swing.ImageIcon("pplnearby.jpg")));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
