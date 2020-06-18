@@ -208,12 +208,12 @@ public class addinterest extends javax.swing.JFrame {
 
     private void findfriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findfriendActionPerformed
         // TODO add your handling code here:
-        chat f=new chat();
-        f.setVisible(true);
-        f.pack();
-        f.setLocationRelativeTo(null);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+//        chat f=new chat();
+//        f.setVisible(true);
+//        f.pack();
+//        f.setLocationRelativeTo(null);
+//        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        this.dispose();
 
     }//GEN-LAST:event_findfriendActionPerformed
 
@@ -275,6 +275,7 @@ public class addinterest extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new addinterest().setVisible(true);
             }

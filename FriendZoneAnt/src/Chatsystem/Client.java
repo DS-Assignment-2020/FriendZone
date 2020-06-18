@@ -19,12 +19,14 @@ public class Client {
 
     public static void main(String[] args) throws IOException {
         Socket socket = new Socket(serverIP, serverPORT);
+
 //        DataOutputStream dOut = new DataOutputStream(socket.getOutputStream());
 //        dOut.writeByte(1);
 //        dOut.writeUTF("This is the first type of message.");
 //        dOut.flush(); // Send off the data
 //        dOut.close();
         TrollMessage troll = new TrollMessage();
+
         ServerConnection serverConn = new ServerConnection(socket);
         //BufferedReader serveroutput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
@@ -43,11 +45,11 @@ public class Client {
         System.out.println("Please input your name in chat: ");
         System.out.print("> ");
         while (true) {
-            
+            //TrollMessage troll = new TrollMessage();
             
             String clientinput = keyboard.readLine();
-            String afterTroll = troll.CompareVAdj(clientinput);
-            outtoserver.println(afterTroll);
+            //String afterTroll = troll.CompareVAdj(clientinput);
+            outtoserver.println(clientinput);
             
             if (clientinput.equalsIgnoreCase("quit")){
                 break;

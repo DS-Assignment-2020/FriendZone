@@ -1,4 +1,4 @@
-package GUIpackage;
+package MainPackage;
 
 import Chatsystem.*;
 import java.io.FileInputStream;

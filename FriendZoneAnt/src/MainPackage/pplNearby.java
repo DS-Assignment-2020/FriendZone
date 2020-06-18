@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUIpackage;
+package MainPackage;
 
 /**
  *
@@ -272,8 +272,8 @@ public class pplNearby extends javax.swing.JFrame {
         searches+=1;
         i=0;
         Distance dist = new Distance(range,specialid);
-        potential_matches = dist.Main();
-        if(!potential_matches.isEmpty()){
+        LinkedList<String> distant_partners = dist.Main();
+        if(!distant_partners.isEmpty()){
 //            LinkedList<String> match_info = getUserInfo(potential_matches.get(i));
 //            LinkedList<String> match_interests = getInterests(potential_matches.get(i));
 //            username.setText(match_info.get(0));
@@ -290,6 +290,8 @@ public class pplNearby extends javax.swing.JFrame {
 //                interest_text = minat.toString();
 //            }
 //            interest.setText(interest_text);
+            sortedInterest sort = new sortedInterest(distant_partners);
+            potential_matches = sort.getPartners();
             displayInfo(i);
             String labelrange = Integer.toString(range);
             String labelmatches = Integer.toString(potential_matches.size());
