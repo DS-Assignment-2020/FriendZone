@@ -28,12 +28,13 @@ public class ClientHandler implements Runnable {
     
     @Override
     public void run() {
-        TrollMessage troll = new TrollMessage();
+        
         try {
             
             String firstclientinput = in.readLine();
             clientname.add(firstclientinput);
             while (true) {
+                TrollMessage troll = new TrollMessage();
                 String clientinput = in.readLine();
                 String afterTroll = troll.CompareVAdj(clientinput);
                 if (clientinput.equalsIgnoreCase("quit")){

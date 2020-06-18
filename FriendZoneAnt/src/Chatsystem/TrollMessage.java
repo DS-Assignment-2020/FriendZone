@@ -75,7 +75,7 @@ public class TrollMessage {
                             }
                             tocompare = "";
                             aftercompare += c;
-                            System.out.println("After compare:" + aftercompare);
+                            //System.out.println("After compare:" + aftercompare);
                             break;
                         }
                     }
