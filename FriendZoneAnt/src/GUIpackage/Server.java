@@ -1,5 +1,6 @@
-package Chatsystem;
+package GUIpackage;
 
+import Chatsystem.*;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -22,18 +23,16 @@ public class Server {
     
     public static void main(String[] args) throws IOException {
         ServerSocket listener = new ServerSocket(PORT); //create server socket using port 9090
+        
         while (true) {
             System.out.println("[Server] Waiting for client connection..");
             Socket clientSocket = listener.accept(); //accept connection from clientSocket
-//                   DataInputStream dIn = new DataInputStream(clientSocket.getInputStream());
-//            System.out.println(dIn.readUTF());
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             System.out.println("[Server] Connected to client from " + clientSocket);
             ClientHandler clientThread = new ClientHandler(clientSocket, clients);
             clients.add(clientThread);
             //out.println("Client " + clients.indexOf(clientThread) + ": ");
             pool.execute(clientThread);
-
         }
 
 //        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);

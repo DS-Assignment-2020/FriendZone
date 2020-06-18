@@ -15,6 +15,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.LinkedList;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import javax.swing.JFrame;
 
 /**
@@ -352,9 +354,48 @@ public class pplNearby extends javax.swing.JFrame {
         }
             return userinfo;
     } 
+    
+    public String getUsername(String specialid){
+        String username = "";
+         try{
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
+            Statement query = conn.createStatement();
+            ResultSet rs = query.executeQuery("SELECT username FROM signup WHERE specialid = '"+specialid+"';");
+            while ( rs.next() ) {
+                username = rs.getString("username");
+            }
+            conn.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+         return username;
+    }
 
     private void chatActionPerformed(java.awt.event.ActionEvent evt) {                                     
         // TODO add your handling code here:
+//        Server connect = new Server();
+//        Client client1 = new Client();
+//        Client client2 = new Client();
+//        CompletableFuture<Void> future1 = CompletableFuture.runAsync(()->{
+//            Server connect = new Server();
+//        });
+//
+//        CompletableFuture<Void> future2 = CompletableFuture.runAsync(()->{
+//            Client client1 = new Client();
+//        });
+//
+//        CompletableFuture<Void> future3 = CompletableFuture.runAsync(()->{
+//            Client client2 = new Client();
+//        });
+//
+//        CompletableFuture<Void> future = CompletableFuture.allOf(future1, future2, future3); 
+//            try {
+//                future.get(); // this line waits for all to be completed
+//            } catch (InterruptedException  | ExecutionException e) {
+//         Handle
+//        }
+        Client clientchat = new Client(getUsername(specialid),specialid);
     }  
     
     private int incrementRange(){

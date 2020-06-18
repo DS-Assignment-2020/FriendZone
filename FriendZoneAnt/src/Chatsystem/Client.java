@@ -1,6 +1,7 @@
 package Chatsystem;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -18,6 +19,11 @@ public class Client {
 
     public static void main(String[] args) throws IOException {
         Socket socket = new Socket(serverIP, serverPORT);
+//        DataOutputStream dOut = new DataOutputStream(socket.getOutputStream());
+//        dOut.writeByte(1);
+//        dOut.writeUTF("This is the first type of message.");
+//        dOut.flush(); // Send off the data
+//        dOut.close();
         TrollMessage troll = new TrollMessage();
         ServerConnection serverConn = new ServerConnection(socket);
         //BufferedReader serveroutput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -25,7 +31,6 @@ public class Client {
         PrintWriter outtoserver = new PrintWriter(socket.getOutputStream(), true);
         //name = new HashMap<Integer, String>();
         new Thread(serverConn).start();
-        
         
 //        System.out.println("Give yourself a name in the app");hello
 //        String appname = keyboard.readLine();

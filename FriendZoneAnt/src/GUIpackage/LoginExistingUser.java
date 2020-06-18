@@ -231,7 +231,6 @@ public class LoginExistingUser extends javax.swing.JFrame {
         }catch(Exception e){
             System.out.println("Error!");
         }
-        System.out.println(loc);
         return loc;
     }
     

@@ -1,5 +1,6 @@
-package Chatsystem;
+package GUIpackage;
 
+import Chatsystem.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
@@ -75,7 +76,7 @@ public class TrollMessage {
                             }
                             tocompare = "";
                             aftercompare += c;
-                            System.out.println(aftercompare);
+                            System.out.println("After compare:" + aftercompare);
                             break;
                         }
                     }
