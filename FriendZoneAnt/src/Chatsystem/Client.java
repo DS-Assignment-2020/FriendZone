@@ -10,7 +10,8 @@ import java.util.HashMap;
 
 public class Client {
 
-    private static final String serverIP = "192.168.0.128";
+//    private static final String serverIP = "192.168.0.128";
+    private static final String serverIP = "127.0.0.1";
     private static final int serverPORT = 9090;
     //private static ArrayList<Socket> allclientsocket;
     //private static HashMap<Integer, String> name;
@@ -26,7 +27,7 @@ public class Client {
         new Thread(serverConn).start();
         
         
-//        System.out.println("Give yourself a name in the app");
+//        System.out.println("Give yourself a name in the app");hello
 //        String appname = keyboard.readLine();
 ////        allclientsocket.add(socket);
 //        int a = 1;

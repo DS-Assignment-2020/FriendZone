@@ -39,12 +39,13 @@ public class chat extends javax.swing.JFrame {
         Name = new javax.swing.JLabel();
         search = new javax.swing.JTextField();
         send = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1800, 1012));
-        getContentPane().setLayout(null);
 
         close.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
         close.setText("X");
@@ -54,8 +55,6 @@ public class chat extends javax.swing.JFrame {
                 closeMouseClicked(evt);
             }
         });
-        getContentPane().add(close);
-        close.setBounds(1730, 10, 60, 60);
 
         min.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
         min.setText("—");
@@ -65,12 +64,8 @@ public class chat extends javax.swing.JFrame {
                 minMouseClicked(evt);
             }
         });
-        getContentPane().add(min);
-        min.setBounds(1650, 20, 50, 35);
 
         entermsg.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        getContentPane().add(entermsg);
-        entermsg.setBounds(610, 930, 1020, 60);
 
         back.setBackground(new java.awt.Color(0, 0, 0));
         back.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
@@ -81,17 +76,11 @@ public class chat extends javax.swing.JFrame {
                 backMouseClicked(evt);
             }
         });
-        getContentPane().add(back);
-        back.setBounds(610, 90, 60, 60);
 
         Name.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         Name.setText("name");
-        getContentPane().add(Name);
-        Name.setBounds(710, 80, 390, 70);
 
         search.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        getContentPane().add(search);
-        search.setBounds(160, 90, 390, 60);
 
         send.setBackground(new java.awt.Color(0, 0, 0));
         send.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
@@ -102,13 +91,73 @@ public class chat extends javax.swing.JFrame {
                 sendMouseClicked(evt);
             }
         });
-        getContentPane().add(send);
-        send.setBounds(1640, 930, 70, 60);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/loginandregister/chat.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1800, 1010);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1650, 1650, 1650)
+                .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(610, 610, 610)
+                .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1640, 1640, 1640)
+                .addComponent(send, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(620, 620, 620)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(610, 610, 610)
+                .addComponent(entermsg, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1730, 1730, 1730)
+                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1800, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(710, 710, 710)
+                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(930, 930, 930)
+                .addComponent(send, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(930, 930, 930)
+                .addComponent(entermsg, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1010, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -178,6 +227,8 @@ public class chat extends javax.swing.JFrame {
     private javax.swing.JLabel close;
     private javax.swing.JTextField entermsg;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel min;
     private javax.swing.JTextField search;
     private javax.swing.JLabel send;

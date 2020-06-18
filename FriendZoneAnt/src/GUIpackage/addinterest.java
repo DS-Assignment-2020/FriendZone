@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.LinkedList;
 import javax.swing.JFrame;
 
 /**
@@ -131,12 +132,10 @@ public class addinterest extends javax.swing.JFrame {
         String [] user_capitalise = new String[user_array.length];
         for(int i=0;i<user_array.length;i++){
             String uppercaseletter = user_array[i].substring(0,1).toUpperCase();
-            System.out.println(uppercaseletter);
+
             user_capitalise[i] = uppercaseletter + user_array[i].substring(1);
         }
         String full_username = "";
-        System.out.println(user_array.length);
-        System.out.println(user_capitalise[0]);
         for(int i=0;i<user_array.length;i++){
          full_username += user_capitalise[i] + " ";   
         }
@@ -269,12 +268,12 @@ public class addinterest extends javax.swing.JFrame {
 
     private void findfriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findfriendActionPerformed
         // TODO add your handling code here:
-//        chat f=new chat();
-//        f.setVisible(true);
-//        f.pack();
-//        f.setLocationRelativeTo(null);
-//        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        this.dispose();
+        pplNearby f=new pplNearby(getSpecialID(email,username));
+        f.setVisible(true);
+        f.pack();
+        f.setLocationRelativeTo(null);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
 
     }//GEN-LAST:event_findfriendActionPerformed
 
@@ -407,6 +406,24 @@ public class addinterest extends javax.swing.JFrame {
             System.out.println("Error!");
         }
          return specialID;
+    }
+    
+    public LinkedList<String> getInterests(String specialid){
+        LinkedList<String> interests = new LinkedList<>();
+         try{
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
+            Statement query = conn.createStatement();
+            ResultSet rs = query.executeQuery("SELECT interest FROM interestexample WHERE specialid = '"+specialid+"';");
+            while ( rs.next() ) {
+                String interest = rs.getString("specialid");
+                interests.add(interest);
+            }
+            conn.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+         return interests;
     }
     
     public void addInterest(String specialID){
