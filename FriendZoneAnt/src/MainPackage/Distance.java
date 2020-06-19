@@ -5,11 +5,11 @@
  */
 package MainPackage;
 
-import static Coordinates.DistanceCalc.find;
-import static Coordinates.DistanceCalc.findMaxRange;
-import static Coordinates.DistanceCalc.getGender;
-import static Coordinates.DistanceCalc.getLatitudeandLongitude;
-import static Coordinates.DistanceCalc.getUsername;
+//import static Coordinates.DistanceCalc.find;
+//import static Coordinates.DistanceCalc.findMaxRange;
+//import static Coordinates.DistanceCalc.getGender;
+//import static Coordinates.DistanceCalc.getLatitudeandLongitude;
+//import static Coordinates.DistanceCalc.getUsername;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -62,7 +62,7 @@ public class Distance {
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT gender FROM signup WHERE specialid = '00000001';");
+            ResultSet rs = query.executeQuery("SELECT gender FROM signup WHERE specialid = '"+specialid+"';");
             while ( rs.next() ) {
                 gender = rs.getString("gender");
             }

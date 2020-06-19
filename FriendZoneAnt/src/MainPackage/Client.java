@@ -46,6 +46,7 @@ public class Client {
             
             String clientinput = keyboard.readLine();
             String afterTroll = troll.CompareVAdj(clientinput);
+            System.out.println(afterTroll);
             outtoserver.println(afterTroll);
             
             if (clientinput.equalsIgnoreCase("quit")){

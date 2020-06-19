@@ -75,7 +75,7 @@ public class TrollMessage {
                             }
                             tocompare = "";
                             aftercompare += c;
-                            //System.out.println("After compare:" + aftercompare);
+                            System.out.println("After compare:" + aftercompare);
                             break;
                         }
                     }
@@ -101,6 +101,7 @@ public class TrollMessage {
                     //System.out.println("point");
                     if (adj[1].contains(" ") == true) {
                         String[] antonym = adj[1].split(" ");
+
                         int num = r.nextInt(antonym.length);
                         String comparing = firstcharuppercase(tocompare);
                         if (tocompare.equals(tocompare.toLowerCase())) {
@@ -169,6 +170,7 @@ public class TrollMessage {
             }
         }
         return aftercompare;
+
     }
 
 //    public String FindAntonym(String a) {

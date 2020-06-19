@@ -21,6 +21,7 @@ public class chat extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         entermsg.setBackground(new Color(0,0,0,0));
+        System.out.println("hello");
     }
 
     /**

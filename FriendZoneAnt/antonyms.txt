@@ -11024,9 +11024,9 @@ handled#
 handless#
 handmade#
 hands-off#
-handsome#awkward disagreeable dull homely rough ruffled ugly unfashionable unsophisticated unstylish wrinkled
-handsomer#awkward disagreeable dull homely rough ruffled ugly unfashionable unsophisticated unstylish wrinkled
-handsomest#awkward disagreeable dull homely rough ruffled ugly unfashionable unsophisticated unstylish wrinkled
+handsome#awkward dull homely rough ruffled ugly unfashionable unsophisticated unstylish wrinkled
+handsomer#awkward dull homely rough ruffled ugly unfashionable unsophisticated unstylish wrinkled
+handsomest#awkward dull homely rough ruffled ugly unfashionable unsophisticated unstylish wrinkled
 handworked#
 handwritten#
 handwrought#
@@ -44668,7 +44668,7 @@ louse#
 louses#
 lout#
 louts#
-love#animosity dislike enmity hate hatred ill will indifference neglect apathy coolness disloyalty misery sorrow treachery unhappiness
+love#hate 
 loved#
 loves#animosity dislike enmity hate hatred ill will indifference neglect apathy coolness disloyalty misery sorrow treachery unhappiness
 low#big enormous huge immense important large raised

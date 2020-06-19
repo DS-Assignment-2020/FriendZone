@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -48,7 +51,9 @@ public class Client {
             //TrollMessage troll = new TrollMessage();
             
             String clientinput = keyboard.readLine();
-            //String afterTroll = troll.CompareVAdj(clientinput);
+            Encrypt enc = new Encrypt(clientinput);
+            storeMessage(enc.encrypt());
+//            String afterTroll = troll.CompareVAdj(clientinput);
             outtoserver.println(clientinput);
             
             if (clientinput.equalsIgnoreCase("quit")){
@@ -66,5 +71,18 @@ public class Client {
         }
         socket.close();
         System.exit(0);
+    }
+    
+    public static void storeMessage(String clientinput){
+        try{
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection con = DriverManager.getConnection(url, "root", "password");
+            Statement query = con.createStatement();
+            query.executeUpdate("INSERT INTO message (message) VALUES('"+clientinput+"');");
+
+            con.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
     }
 }
