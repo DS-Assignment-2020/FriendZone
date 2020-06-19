@@ -293,11 +293,11 @@ public class pplNearby extends javax.swing.JFrame {
             sortedInterest sort = new sortedInterest(distant_partners);
             potential_matches = sort.getPartners();
             displayInfo(i);
-            String labelrange = Integer.toString(range);
             String labelmatches = Integer.toString(potential_matches.size());
-            distance.setText(labelrange);
             matches.setText(labelmatches);
         }
+         String labelrange = Integer.toString(range);
+         distance.setText(labelrange);
         String labelsearches = Integer.toString(searches);
         num.setText(labelsearches);
     }
