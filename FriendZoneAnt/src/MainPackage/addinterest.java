@@ -127,19 +127,19 @@ public class addinterest extends javax.swing.JFrame {
         });
 
         Name.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-
-        String [] user_array = username.split(" ");
-        String [] user_capitalise = new String[user_array.length];
-        for(int i=0;i<user_array.length;i++){
-            String uppercaseletter = user_array[i].substring(0,1).toUpperCase();
-
-            user_capitalise[i] = uppercaseletter + user_array[i].substring(1);
-        }
-        String full_username = "";
-        for(int i=0;i<user_array.length;i++){
-         full_username += user_capitalise[i] + " ";   
-        }
-        Name.setText("Username: "+full_username);
+//
+//        String [] user_array = username.split(" ");
+//        String [] user_capitalise = new String[user_array.length];
+//        for(int i=0;i<user_array.length;i++){
+//            String uppercaseletter = user_array[i].substring(0,1).toUpperCase();
+//
+//            user_capitalise[i] = uppercaseletter + user_array[i].substring(1);
+//        }
+//        String full_username = "";
+//        for(int i=0;i<user_array.length;i++){
+//         full_username += user_capitalise[i] + " ";   
+//        }
+        Name.setText("Username: "+username);
 
         gender.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         gender.setText("Gender: "+user_gender);
@@ -268,7 +268,7 @@ public class addinterest extends javax.swing.JFrame {
 
     private void findfriendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findfriendActionPerformed
         // TODO add your handling code here:
-        pplNearby f=new pplNearby(getSpecialID(email,username));
+        pplNearby f=new pplNearby(getSpecialID(email,splitUsernameLabel()));
         f.setVisible(true);
         f.pack();
         f.setLocationRelativeTo(null);
@@ -281,18 +281,33 @@ public class addinterest extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_closeMouseClicked
+    
+    public String splitUsernameLabel(){
+        String [] split = Name.getText().split(" ");
+        String split_username ="";
+        for(int i=0;i<split.length;i++){
+            if(i==0)
+                continue;
+            split_username += split[i] + " ";
+        }
+        return split_username;
+    }
 
     private void leftarrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftarrowActionPerformed
         // TODO add your handling code here:
-        String usertag = getLeftTag(email,getSpecialID(email,username));
+        String usertag = getLeftTag(email,getSpecialID(email,splitUsernameLabel()));
         if(usertag.length()==1){
             String [] user_loc = getUsername(usertag);
-            addinterest c=new addinterest(email,user_loc[0],user_gender,user_loc[1]);
-            c.setVisible(true);
-            c.pack();
-            c.setLocationRelativeTo(null);
-            c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
+//            addinterest c=new addinterest(email,user_loc[0],user_gender,user_loc[1]);
+//            c.setVisible(true);
+//            c.pack();
+//            c.setLocationRelativeTo(null);
+//            c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//            this.dispose();
+                Name.setText("Username: "+user_loc[0]);
+                coordinate.setText("Location: "+user_loc[1]);
+                gender.setText("Gender: "+user_gender);
+                interest.setText("Interests: "+getInterest(getSpecialID(email,splitUsernameLabel())));
         }
     }//GEN-LAST:event_leftarrowActionPerformed
     
@@ -340,15 +355,19 @@ public class addinterest extends javax.swing.JFrame {
 
     private void rightarrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightarrowActionPerformed
         // TODO add your handling code here:
-        String usertag = getRightTag(email,getSpecialID(email,username));
+        String usertag = getRightTag(email,getSpecialID(email,splitUsernameLabel()));
         if(usertag.length()==1){
             String [] user_loc = getUsername(usertag);
-            addinterest c=new addinterest(email,user_loc[0],user_gender,user_loc[1]);
-            c.setVisible(true);
-            c.pack();
-            c.setLocationRelativeTo(null);
-            c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
+//            addinterest c=new addinterest(email,user_loc[0],user_gender,user_loc[1]);
+//            c.setVisible(true);
+//            c.pack();
+//            c.setLocationRelativeTo(null);
+//            c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//            this.dispose();
+                Name.setText("Username: "+user_loc[0]);
+                coordinate.setText("Location: "+user_loc[1]);
+                gender.setText("Gender: "+user_gender);
+                interest.setText("Interests: "+getInterest(getSpecialID(email,splitUsernameLabel())));
         }
     }//GEN-LAST:event_rightarrowActionPerformed
     
@@ -366,7 +385,6 @@ public class addinterest extends javax.swing.JFrame {
         }catch(Exception e){
             System.out.println("Error!");
         }
-         
          if(!usertag.equals("Z")){
              char tag = (char)(usertag.charAt(0) + 1);
              usertag = Character.toString(tag);
@@ -378,7 +396,7 @@ public class addinterest extends javax.swing.JFrame {
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
-        addInterest(getSpecialID(email,username));
+        addInterest(getSpecialID(email,splitUsernameLabel()));
     }//GEN-LAST:event_addActionPerformed
 
     private void minMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minMouseClicked
