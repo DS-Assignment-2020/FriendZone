@@ -18,6 +18,10 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 /**
  *
  * @author user
@@ -26,10 +30,14 @@ public class chat extends javax.swing.JFrame {
     
     private static final String serverIP = "127.0.0.1";
     private static final int serverPORT = 9090;
+    static Socket socket;
+    static ServerConnection serverConn;
+    static  BufferedReader keyboard;
+    static PrintWriter outtoserver;
     /**
      * Creates new form chat
      */
-    public chat() {
+    public chat(String specialid) {
         initComponents();
         this.setLocationRelativeTo(null);
         entermsg.setBackground(new Color(0,0,0,0));
@@ -197,7 +205,40 @@ public class chat extends javax.swing.JFrame {
 
     private void sendMouseClicked(java.awt.event.MouseEvent evt) {                                  
         // TODO add your handling code here:
-    }                                 
+        String msgout = "";
+        msgout = entermsg.getText().trim();
+        outtoserver.println(msgout);
+    }    
+    
+    public static void storeMessage(String clientinput){
+        try{
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection con = DriverManager.getConnection(url, "root", "password");
+            Statement query = con.createStatement();
+            query.executeUpdate("INSERT INTO message (message) VALUES('"+clientinput+"');");
+
+            con.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+    }
+    
+     public static String getUsername(String specialid){
+        String username = "";
+         try{
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
+            Statement query = conn.createStatement();
+            ResultSet rs = query.executeQuery("SELECT specialid FROM signup WHERE specialid = '"+specialid+"';");
+            while ( rs.next() ) {
+                username = rs.getString("username");
+            }
+            conn.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+         return username;
+    }
 
     /**
      * @param args the command line arguments
@@ -208,6 +249,8 @@ public class chat extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        String specialid = "00000001";
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -229,19 +272,58 @@ public class chat extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new chat().setVisible(true);
+                new chat(specialid).setVisible(true);
             }
         });
+        
+        try{
+            socket = new Socket(serverIP, serverPORT);
+            serverConn = new ServerConnection(socket);
+            keyboard = new BufferedReader(new InputStreamReader(System.in));
+            outtoserver = new PrintWriter(socket.getOutputStream(), true);
+            new Thread(serverConn).start();
+            while (true) {
+            //TrollMessage troll = new TrollMessage();
+            
+            String clientinput = keyboard.readLine();
+            Encrypt enc = new Encrypt(clientinput);
+            storeMessage(enc.encrypt());
+//            String afterTroll = troll.CompareVAdj(clientinput);
+                System.out.println(clientinput);
+            jTextArea1.setText(jTextArea1.getText().trim()+"\n"+clientinput);
+            outtoserver.println(clientinput);
+            
+            if (clientinput.equalsIgnoreCase("quit")){
+                break;
+            }
+//            int firstspace = clientinput.indexOf(" ");
+//            if (firstspace != -1){
+//                System.out.println("[me]: " + clientinput.substring(firstspace+1));
+//            }else{
+//                System.out.println("[me]: " + clientinput);
+//            }
+            
+//            String serverResponse = serveroutput.readLine();
+//            System.out.println("[Server]: " + serverResponse);
+        }
+        socket.close();
+        System.exit(0);
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }catch(NullPointerException e){
+            
+        }
+        
     }
 
     // Variables declaration - do not modify                     
     private javax.swing.JLabel Name;
     private javax.swing.JLabel back;
     private javax.swing.JLabel close;
-    private javax.swing.JTextField entermsg;
+    private static javax.swing.JTextField entermsg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public static javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel min;
     private javax.swing.JTextField search;
     private javax.swing.JLabel send;

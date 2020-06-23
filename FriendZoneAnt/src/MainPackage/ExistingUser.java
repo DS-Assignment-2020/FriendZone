@@ -24,16 +24,19 @@ import java.util.Scanner;
 public class ExistingUser<T,K>{
     
    private T email, username, password, id, location;
+   private K latitude,longitude;
    private String usertag = "";
-   private K gender;
+   private T gender;
     
-    public ExistingUser(T email, T password, T username,K gender,T id,T location){
+    public ExistingUser(T email, T password, T username,T gender,T id,T location,K latitude,K longitude){
         this.username=username;
         this.email=email;
         this.password=password;
         this.id=id;
         this.gender=gender;
         this.location=location;
+        this.latitude=latitude;
+        this.longitude=longitude;
     }
 
    public void storeDatabase() {
@@ -42,11 +45,11 @@ public class ExistingUser<T,K>{
             Connection con = DriverManager.getConnection(url, "root", "password");
             Statement query = con.createStatement();
             usertag += userTag();
-            query.executeUpdate("INSERT INTO signup (email,password,username,gender,usertag,specialid,location) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"', '"+usertag+"', '"+id.toString()+"', '"+location.toString()+"');");
+            query.executeUpdate("INSERT INTO signup (email,password,username,gender,usertag,specialid,location,latitude,longitude) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"', '"+usertag+"', '"+id.toString()+"', '"+location.toString()+"','"+latitude+"','"+longitude+"');");
 
             con.close();
         }catch(Exception e){
-            System.out.println("Error!");
+            System.out.println("Error!!!");
         }
     }
    

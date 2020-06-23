@@ -24,15 +24,18 @@ import java.util.Scanner;
  */
 public class UserInfo<T,K> implements Info{
     private T email, username, password, gender, location;
+    private K latitude,longitude;
     private String id;
     
-    public UserInfo(T email, T password, T username,T gender,String id, T location){
+    public UserInfo(T email, T password, T username,T gender,String id, T location,K latitude,K longitude){
         this.username=username;
         this.email=email;
         this.password=password;
         this.gender=gender;
         this.id=id;
         this.location=location;
+        this.latitude=latitude;
+        this.longitude=longitude;
     }
 
     @Override
@@ -41,11 +44,11 @@ public class UserInfo<T,K> implements Info{
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection connection = DriverManager.getConnection(url, "root", "password");
             Statement query = connection.createStatement();
-            query.executeUpdate("INSERT INTO signup (email,password,username,gender,usertag,specialid,location) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"','A' ,'"+id+"', '"+location.toString()+"');");
+            query.executeUpdate("INSERT INTO signup (email,password,username,gender,usertag,specialid,location,latitude,longitude) VALUES('"+email.toString()+"', '"+password.toString()+"', '"+username.toString()+"', '"+gender.toString()+"','A' ,'"+id+"', '"+location.toString()+"','"+latitude+"','"+longitude+"');");
             
             connection.close();
         }catch(Exception e){
-            System.out.println("Error!");
+            System.out.println("Error!!");
         }
     }
 

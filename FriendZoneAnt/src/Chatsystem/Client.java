@@ -28,7 +28,6 @@ public class Client {
 //        dOut.writeUTF("This is the first type of message.");
 //        dOut.flush(); // Send off the data
 //        dOut.close();
-        TrollMessage troll = new TrollMessage();
 
         ServerConnection serverConn = new ServerConnection(socket);
         //BufferedReader serveroutput = new BufferedReader(new InputStreamReader(socket.getInputStream()));

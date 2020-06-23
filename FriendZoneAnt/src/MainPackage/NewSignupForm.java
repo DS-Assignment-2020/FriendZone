@@ -9,14 +9,23 @@ package MainPackage;
  *
  * @author Owner
  */
+
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.LinkedList;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import org.json.JSONObject;
 
 /**
  *
@@ -27,6 +36,7 @@ public class NewSignupForm extends javax.swing.JFrame {
     /**
      * Creates new form SignupForm
      */
+     private static HttpURLConnection connection;
 
     public NewSignupForm() {
         initComponents();
@@ -258,6 +268,7 @@ public class NewSignupForm extends javax.swing.JFrame {
         String username_text = textusername.getText();
         String pass_word = new String(password.getPassword());
         String gender_select;
+        LinkedList<Double> lat_lng = getLatAndLng();
         if(male.isSelected())
             gender_select = "M";
         else if(female.isSelected())
@@ -267,10 +278,10 @@ public class NewSignupForm extends javax.swing.JFrame {
         
         String newID = newID();
         if(checkAccount(email_text).length()==8){
-            ExistingUser<String,Character> signup = new ExistingUser(email_text,pass_word,username_text,gender_select,newID,location1.getText());
+            ExistingUser<String,Double> signup = new ExistingUser(email_text,pass_word,username_text,gender_select,newID,location1.getText(),lat_lng.get(0),lat_lng.get(1));
             signup.storeDatabase();
         }else{
-            UserInfo<String,Character> signup = new UserInfo(email_text,pass_word,username_text,gender_select,newID,location1.getText());
+            UserInfo<String,Double> signup = new UserInfo(email_text,pass_word,username_text,gender_select,newID,location1.getText(),lat_lng.get(0),lat_lng.get(1));
             signup.storeDatabase();
         }
         addinterest c=new addinterest(email_text,username_text,gender_select,location1.getText());
@@ -279,7 +290,74 @@ public class NewSignupForm extends javax.swing.JFrame {
         c.setLocationRelativeTo(null);
         c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
-    } 
+    }
+
+    public LinkedList<Double> getLatAndLng(){
+        
+        LinkedList<Double> lat_lng = new LinkedList<>();
+        String loc = "";
+        String [] location = location1.getText().split(" ");
+         for(int i=0;i<location.length;i++){
+                if(i==location.length-1){
+                    loc+=location[i];
+                    break;
+                }
+                loc += location[i] + "+";
+            }
+        
+        BufferedReader reader;
+        String line;
+        StringBuffer responseContent = new StringBuffer();
+
+        try{
+            URL url1 = new URL("https://maps.googleapis.com/maps/api/geocode/json?address="+loc+"&key=AIzaSyCcMsn0tbVUpSBp-DHGropQkZj--nJ4uq0");
+            connection =  (HttpURLConnection) url1.openConnection();
+            
+            //request setup
+            connection.setRequestMethod("GET");
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
+
+            int status = connection.getResponseCode();
+            //System.out.println(status);
+            if(status>299){
+                reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
+                while((line = reader.readLine())!=null){
+                    responseContent.append(line);
+                }
+                reader.close();
+            }else{
+                reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                while((line = reader.readLine())!=null){
+                    responseContent.append(line);
+                    responseContent.append("\n");
+                }
+                reader.close();
+            }
+            String jsonresponse = responseContent.toString();
+            lat_lng = parse(jsonresponse);
+            
+        }catch(MalformedURLException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }finally{
+            connection.disconnect();
+        }
+        
+        return lat_lng;
+    }
+    
+    public static LinkedList<Double> parse(String responseBody){
+        LinkedList<Double> lat_lng = new LinkedList<>();
+       JSONObject passValue = new JSONObject(responseBody);
+        JSONObject a = passValue.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location");
+        double lat = a.getDouble("lat");
+        double lng = a.getDouble("lng");
+        lat_lng.add(a.getDouble("lat"));
+        lat_lng.add(a.getDouble("lng"));
+        return lat_lng;
+    }
     
     public String checkAccount(String email_text){
         String id = "";
@@ -293,7 +371,7 @@ public class NewSignupForm extends javax.swing.JFrame {
             }
             conn.close();
         }catch(Exception e){
-            System.out.println("Error!");
+            System.out.println("Error!!!!");
         }
         return id;
     }
@@ -314,7 +392,7 @@ public class NewSignupForm extends javax.swing.JFrame {
             }
             connect.close();
         }catch(Exception e){
-            System.out.println("Error!");
+            System.out.println("ID could not be retrieved!");
         }
         bigID +=1;
         String last_ID = Integer.toString(bigID);

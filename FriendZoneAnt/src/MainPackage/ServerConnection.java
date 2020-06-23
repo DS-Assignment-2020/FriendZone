@@ -1,6 +1,5 @@
 package MainPackage;
 
-import Chatsystem.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,6 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static MainPackage.chat.jTextArea1;
 
 public class ServerConnection implements Runnable {
 
@@ -29,7 +29,7 @@ public class ServerConnection implements Runnable {
                 if(serverResponse == null){
                     break;
                 }
-                System.out.println(serverResponse);
+                jTextArea1.setText(jTextArea1.getText().trim()+"\n"+serverResponse);
             }
         } catch (IOException e) {
             e.printStackTrace();

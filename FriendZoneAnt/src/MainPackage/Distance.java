@@ -31,7 +31,6 @@ import org.json.JSONObject;
 public class Distance {
     
     static final int MAX_r = 20000; //distance unit in meter
-    private static HttpURLConnection connection;
     private int range;
     private String specialid;
     
@@ -94,80 +93,22 @@ public class Distance {
     
     public static LinkedList<Double> getLatitudeandLongitude(String specialid){
         LinkedList<Double> lat_lng = new LinkedList<>();
-        String loc = "";
-        String [] location;
+
         try{
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT location FROM signup WHERE specialid = '"+specialid+"';");
+            ResultSet rs = query.executeQuery("SELECT latitude,longitude FROM signup WHERE specialid = '"+specialid+"';");
             while ( rs.next() ) {
-                loc = rs.getString("location");
+                lat_lng.add(rs.getDouble("latitude"));
+                lat_lng.add(rs.getDouble("longitude"));
             }
-            location = loc.split(" ");
-            loc = "";
-            for(int i=0;i<location.length;i++){
-                if(i==location.length-1){
-                    loc+=location[i];
-                    break;
-                }
-                loc += location[i] + "+";
-            }
+            
             conn.close();
         }catch(Exception e){
             System.out.println("Error!");
         }
         
-        BufferedReader reader;
-        String line;
-        StringBuffer responseContent = new StringBuffer();
-
-        try{
-            URL url1 = new URL("https://maps.googleapis.com/maps/api/geocode/json?address="+loc+"&key=AIzaSyCcMsn0tbVUpSBp-DHGropQkZj--nJ4uq0");
-            connection =  (HttpURLConnection) url1.openConnection();
-            
-            //request setup
-            connection.setRequestMethod("GET");
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
-
-            int status = connection.getResponseCode();
-            //System.out.println(status);
-            if(status>299){
-                reader = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
-                while((line = reader.readLine())!=null){
-                    responseContent.append(line);
-                }
-                reader.close();
-            }else{
-                reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                while((line = reader.readLine())!=null){
-                    responseContent.append(line);
-                    responseContent.append("\n");
-                }
-                reader.close();
-            }
-            String jsonresponse = responseContent.toString();
-            lat_lng = parse(jsonresponse);
-            
-        }catch(MalformedURLException e){
-            e.printStackTrace();
-        }catch(IOException e){
-            e.printStackTrace();
-        }finally{
-            connection.disconnect();
-        }
-        return lat_lng;
-    }
-    
-    public static LinkedList<Double> parse(String responseBody){
-        LinkedList<Double> lat_lng = new LinkedList<>();
-       JSONObject passValue = new JSONObject(responseBody);
-        JSONObject a = passValue.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location");
-        double lat = a.getDouble("lat");
-        double lng = a.getDouble("lng");
-        lat_lng.add(a.getDouble("lat"));
-        lat_lng.add(a.getDouble("lng"));
         return lat_lng;
     }
 

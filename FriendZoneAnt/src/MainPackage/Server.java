@@ -1,6 +1,5 @@
 package MainPackage;
 
-import Chatsystem.*;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;

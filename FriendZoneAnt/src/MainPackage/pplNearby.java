@@ -397,7 +397,8 @@ public class pplNearby extends javax.swing.JFrame {
 //            } catch (InterruptedException  | ExecutionException e) {
 //         Handle
 //        }
-        Client clientchat = new Client(getUsername(specialid),specialid);
+//        Client clientchat = new Client(getUsername(specialid),specialid);
+        chat ch = new chat(specialid);
     }  
     
     private int incrementRange(){
