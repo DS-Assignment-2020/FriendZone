@@ -398,7 +398,7 @@ public class pplNearby extends javax.swing.JFrame {
 //         Handle
 //        }
 //        Client clientchat = new Client(getUsername(specialid),specialid);
-        chat ch = new chat(specialid);
+        chat ch = new chat("00000001");
         ch.setVisible(true);
         ch.pack();
         ch.setLocationRelativeTo(null);

@@ -5,6 +5,10 @@
  */
 package MainPackage;
 
+import static MainPackage.chat.jTextArea1;
+import static MainPackage.chat.keyboard;
+import static MainPackage.chat.outtoserver;
+import static MainPackage.chat.storeMessage;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -12,6 +16,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketException;
+import static MainPackage.chat.jTextArea1;
 
 /**
  *
@@ -22,12 +27,10 @@ public class Client {
     //    private static final String serverIP = "192.168.0.128";
     private static final String serverIP = "127.0.0.1";
     private static final int serverPORT = 9090;
-    String specialid = "";
     String username = "";
     
-    public Client(String username,String specialid){
+    public Client(String username){
      this.username=username;
-     this.specialid=specialid;
         try{
         Socket socket = new Socket(serverIP, serverPORT);
         TrollMessage troll = new TrollMessage();
@@ -39,23 +42,27 @@ public class Client {
         //name = new HashMap<Integer, String>();
         new Thread(serverConn).start();
         
-         System.out.println("Please input your name in chat: ");
-        System.out.print("> ");
-        while (true) {
+         int count = 0;
+            while (true) {
+            //TrollMessage troll = new TrollMessage();
+            String clientinput = "";
             
-            
-            String clientinput = keyboard.readLine();
-            String afterTroll = troll.CompareVAdj(clientinput);
-            System.out.println(afterTroll);
-            outtoserver.println(afterTroll);
-            
+            if(count!=0){
+                clientinput = keyboard.readLine();
+                Encrypt enc = new Encrypt(clientinput);
+                storeMessage(enc.encrypt());
+            }
+//            String afterTroll = troll.CompareVAdj(clientinput);
+            jTextArea1.setText(jTextArea1.getText().trim()+"\n"+clientinput);
+            outtoserver.println(clientinput);
+            count++;
             if (clientinput.equalsIgnoreCase("quit")){
                 break;
             }
-             }
         socket.close();
         System.exit(0);
-    }catch(IOException e){
+    }
+        }catch(IOException e){
             System.out.println("Sorry, we could not connect you to our server");
     }
     }

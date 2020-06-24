@@ -16,7 +16,7 @@ public class ClientHandler implements Runnable {
     private PrintWriter out;
     private ArrayList<ClientHandler> clients;
     private ArrayList<String> clientname = new ArrayList<String>();
-    private static String clientele  = getUsername(specialid);
+    private static final String clientele  = getUsername(specialid);
 //    private ArrayList<Socket> allclientsocket;
 //    private HashMap<String, ArrayList<Socket>> name;
     
@@ -45,7 +45,6 @@ public class ClientHandler implements Runnable {
                 else/*(clientinput.startsWith("say"))*/{
 //                    int firstspace = clientinput.indexOf(" ");
 //                    if (firstspace != -1){
-                        System.out.println(getUsername(specialid));
                         outToAll(clientele + ": " + afterTroll/*.substring(firstspace+1)*/);
                     }
 //                System.out.println(count);

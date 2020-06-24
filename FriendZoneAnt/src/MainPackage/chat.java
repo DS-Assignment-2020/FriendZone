@@ -26,7 +26,7 @@ import java.sql.Statement;
  *
  * @author user
  */
-public class chat extends javax.swing.JFrame {
+public class chat extends javax.swing.JFrame implements Runnable{
     
     private static final String serverIP = "127.0.0.1";
     private static final int serverPORT = 9090;
@@ -39,10 +39,13 @@ public class chat extends javax.swing.JFrame {
      * Creates new form chat
      */
     public chat(String specialid) {
+        this.specialid=specialid;
+        System.out.println(specialid);
         initComponents();
         this.setLocationRelativeTo(null);
         entermsg.setBackground(new Color(0,0,0,0));
-        
+        Client chatclient = new Client(specialid);
+//        startChat();
     }
 
     /**
@@ -243,7 +246,52 @@ public class chat extends javax.swing.JFrame {
         }
          return username;
     }
-
+     
+    @Override
+     public void run(){
+          try{
+            socket = new Socket(serverIP, serverPORT);
+            serverConn = new ServerConnection(socket);
+            keyboard = new BufferedReader(new InputStreamReader(System.in));
+            outtoserver = new PrintWriter(socket.getOutputStream(), true);
+            new Thread(serverConn).start();
+            int count = 0;
+            while (true) {
+            //TrollMessage troll = new TrollMessage();
+            String clientinput = "";
+            
+            if(count!=0){
+                clientinput = keyboard.readLine();
+                Encrypt enc = new Encrypt(clientinput);
+                storeMessage(enc.encrypt());
+            }
+//            String afterTroll = troll.CompareVAdj(clientinput);
+            jTextArea1.setText(jTextArea1.getText().trim()+"\n"+clientinput);
+            outtoserver.println(clientinput);
+            count++;
+            if (clientinput.equalsIgnoreCase("quit")){
+                break;
+            }
+//            int firstspace = clientinput.indexOf(" ");
+//            if (firstspace != -1){
+//                System.out.println("[me]: " + clientinput.substring(firstspace+1));
+//            }else{
+//                System.out.println("[me]: " + clientinput);
+//            }
+            
+//            String serverResponse = serveroutput.readLine();
+//            System.out.println("[Server]: " + serverResponse);
+        }
+        socket.close();
+        System.exit(0);
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }catch(NullPointerException e){
+            
+        }
+        
+     }
+     
     /**
      * @param args the command line arguments
      */
@@ -281,7 +329,6 @@ public class chat extends javax.swing.JFrame {
         });
         
         try{
-            System.out.println(specialid);
             socket = new Socket(serverIP, serverPORT);
             serverConn = new ServerConnection(socket);
             keyboard = new BufferedReader(new InputStreamReader(System.in));
