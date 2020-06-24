@@ -33,8 +33,8 @@ public class ClientHandler implements Runnable {
         TrollMessage troll = new TrollMessage();
         int count = 0;
         try {
-//            String firstclientinput = in.readLine();
-//            clientname.add(firstclientinput);
+            String firstclientinput = in.readLine();
+            clientname.add(firstclientinput);
             while (true) {
                 String clientinput = in.readLine();
                 String afterTroll = troll.CompareVAdj(clientinput);
@@ -45,7 +45,7 @@ public class ClientHandler implements Runnable {
                 else/*(clientinput.startsWith("say"))*/{
 //                    int firstspace = clientinput.indexOf(" ");
 //                    if (firstspace != -1){
-                        outToAll(clientele + ": " + afterTroll/*.substring(firstspace+1)*/);
+                        outToAll(firstclientinput + ": " + afterTroll/*.substring(firstspace+1)*/);
                     }
 //                System.out.println(count);
                 //out.println(clientinput);
