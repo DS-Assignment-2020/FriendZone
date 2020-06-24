@@ -45,7 +45,7 @@ public class sortedInterest {
             
         }
 //        System.out.print("\n"+sorted.toString()+" ");
-        
+        System.out.println(sorted);
         return sorted;
     }
     
@@ -66,5 +66,23 @@ public class sortedInterest {
              System.out.println(e.getMessage());
         }
          return interests;
+    }
+     
+     public static String getGender(String username){
+         String gender = "";
+        try{
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
+            Statement query = conn.createStatement();
+            ResultSet rs = query.executeQuery("SELECT gender FROM signup WHERE username = '"+username+"';");
+            while ( rs.next() ) {
+                gender = rs.getString("gender");
+            }
+            conn.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+        
+        return gender;
     }
 }

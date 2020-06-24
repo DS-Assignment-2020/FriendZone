@@ -290,8 +290,10 @@ public class pplNearby extends javax.swing.JFrame {
 //                interest_text = minat.toString();
 //            }
 //            interest.setText(interest_text);
+System.out.println(distant_partners);
             sortedInterest sort = new sortedInterest(distant_partners);
             potential_matches = sort.getPartners();
+            System.out.println(potential_matches);
             displayInfo(i);
             String labelmatches = Integer.toString(potential_matches.size());
             matches.setText(labelmatches);
@@ -347,7 +349,7 @@ public class pplNearby extends javax.swing.JFrame {
             Statement query = conn.createStatement();
             ResultSet rs = query.executeQuery("SELECT username,location FROM signup WHERE specialid = '"+specialid+"';");
             while ( rs.next() ) {
-                userinfo.add(rs.getString("username"));
+                userinfo.add(rs.getString("username")+" ("+getGender(rs.getString("username"))+")");
                 userinfo.add(rs.getString("location"));
             }
             conn.close();
@@ -356,6 +358,24 @@ public class pplNearby extends javax.swing.JFrame {
         }
             return userinfo;
     } 
+    
+    public static String getGender(String username){
+         String gender = "";
+        try{
+            String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection conn = DriverManager.getConnection(url, "root", "password");
+            Statement query = conn.createStatement();
+            ResultSet rs = query.executeQuery("SELECT gender FROM signup WHERE username = '"+username+"';");
+            while ( rs.next() ) {
+                gender = rs.getString("gender");
+            }
+            conn.close();
+        }catch(Exception e){
+            System.out.println("Error!");
+        }
+        
+        return gender;
+    }
     
     public String getUsername(String specialid){
         String username = "";

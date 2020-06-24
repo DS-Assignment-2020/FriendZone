@@ -6,7 +6,6 @@
 package Chatsystem;
 
 import MainPackage.*;
-import Login.*;
 
 /**
  *

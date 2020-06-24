@@ -44,7 +44,7 @@ public class Distance {
         String gender = getGender(specialid);
         LinkedList<Double> lat_lng = getLatitudeandLongitude(specialid);
 
-        nearbyMAX = findMaxRange(lat_lng.get(0),lat_lng.get(1),gender);// the username of the user who wants to search around himself/herself
+        nearbyMAX = findMaxRange(lat_lng.get(0),lat_lng.get(1),specialid);// the username of the user who wants to search around himself/herself
                                                                     // return the LinkedList of usernames of user in the Max_r
 //        System.out.println(nearbyMAX.toString());
 
@@ -73,13 +73,13 @@ public class Distance {
         return gender;
     }
     
-    public static LinkedList<String> getSpecialID(String gender){
+    public static LinkedList<String> getSpecialID(String id){
         LinkedList<String> specialid = new LinkedList<>();
         try{
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT specialid FROM signup WHERE gender = '"+gender+"';");
+            ResultSet rs = query.executeQuery("SELECT specialid FROM signup WHERE specialid <> '"+id+"';");
             while ( rs.next() ) {
                 specialid.add(rs.getString("specialid"));
             }
@@ -128,17 +128,17 @@ public class Distance {
     }
 
 
-    public static LinkedList<String> findMaxRange(double this_x,double this_y,String this_gender){
-        String gender = "";
-        if(this_gender.equals("M"))
-            gender = "F";
-        else 
-            gender = "M";
+    public static LinkedList<String> findMaxRange(double this_x,double this_y,String specialid){
+//        String gender = "";
+//        if(this_gender.equals("M"))
+//            gender = "F";
+//        else 
+//            gender = "M";
         int x,y;
         LinkedList<String> potentialpartners = new LinkedList<>();
         LinkedList<String> usernameFound = new LinkedList<>();
 
-        potentialpartners = getSpecialID(gender);
+        potentialpartners = getSpecialID(specialid);
         LinkedList<Double> partner_lat_lng;
         for(int i=0;i<potentialpartners.size();i++){
             partner_lat_lng = getLatitudeandLongitude(potentialpartners.get(i));
