@@ -34,6 +34,7 @@ public class chat extends javax.swing.JFrame {
     static ServerConnection serverConn;
     static  BufferedReader keyboard;
     static PrintWriter outtoserver;
+    static String specialid = "00000001";
     /**
      * Creates new form chat
      */
@@ -207,6 +208,8 @@ public class chat extends javax.swing.JFrame {
         // TODO add your handling code here:
         String msgout = "";
         msgout = entermsg.getText().trim();
+        Encrypt enc = new Encrypt(msgout);
+        storeMessage(enc.encrypt());
         outtoserver.println(msgout);
     }    
     
@@ -229,7 +232,8 @@ public class chat extends javax.swing.JFrame {
             String url = "jdbc:mysql://34.87.155.63:3306/friendzone?zeroDateTimeBehavior=CONVERT_TO_NULL";
             Connection conn = DriverManager.getConnection(url, "root", "password");
             Statement query = conn.createStatement();
-            ResultSet rs = query.executeQuery("SELECT specialid FROM signup WHERE specialid = '"+specialid+"';");
+             System.out.println(specialid);
+            ResultSet rs = query.executeQuery("SELECT username FROM signup WHERE specialid = '"+specialid+"';");
             while ( rs.next() ) {
                 username = rs.getString("username");
             }
@@ -277,22 +281,26 @@ public class chat extends javax.swing.JFrame {
         });
         
         try{
+            System.out.println(specialid);
             socket = new Socket(serverIP, serverPORT);
             serverConn = new ServerConnection(socket);
             keyboard = new BufferedReader(new InputStreamReader(System.in));
             outtoserver = new PrintWriter(socket.getOutputStream(), true);
             new Thread(serverConn).start();
+            int count = 0;
             while (true) {
             //TrollMessage troll = new TrollMessage();
+            String clientinput = "";
             
-            String clientinput = keyboard.readLine();
-            Encrypt enc = new Encrypt(clientinput);
-            storeMessage(enc.encrypt());
+            if(count!=0){
+                clientinput = keyboard.readLine();
+                Encrypt enc = new Encrypt(clientinput);
+                storeMessage(enc.encrypt());
+            }
 //            String afterTroll = troll.CompareVAdj(clientinput);
-                System.out.println(clientinput);
             jTextArea1.setText(jTextArea1.getText().trim()+"\n"+clientinput);
             outtoserver.println(clientinput);
-            
+            count++;
             if (clientinput.equalsIgnoreCase("quit")){
                 break;
             }

@@ -13,6 +13,7 @@ public class ServerConnection implements Runnable {
 
     private Socket server;
     private BufferedReader in;
+    static int count = 0;
     //private PrintWriter out;
 
     public ServerConnection(Socket s) throws IOException {
@@ -29,7 +30,10 @@ public class ServerConnection implements Runnable {
                 if(serverResponse == null){
                     break;
                 }
+                
                 jTextArea1.setText(jTextArea1.getText().trim()+"\n"+serverResponse);
+                
+                count++;
             }
         } catch (IOException e) {
             e.printStackTrace();

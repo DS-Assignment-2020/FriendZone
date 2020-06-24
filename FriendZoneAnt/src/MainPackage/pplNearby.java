@@ -399,6 +399,11 @@ public class pplNearby extends javax.swing.JFrame {
 //        }
 //        Client clientchat = new Client(getUsername(specialid),specialid);
         chat ch = new chat(specialid);
+        ch.setVisible(true);
+        ch.pack();
+        ch.setLocationRelativeTo(null);
+        ch.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
     }  
     
     private int incrementRange(){

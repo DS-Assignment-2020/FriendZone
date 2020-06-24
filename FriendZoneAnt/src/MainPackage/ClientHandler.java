@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
+import static MainPackage.chat.getUsername;
+import static MainPackage.chat.specialid;
 
 public class ClientHandler implements Runnable {
     private Socket client;
@@ -14,7 +16,7 @@ public class ClientHandler implements Runnable {
     private PrintWriter out;
     private ArrayList<ClientHandler> clients;
     private ArrayList<String> clientname = new ArrayList<String>();
-    
+    private static String clientele  = getUsername(specialid);
 //    private ArrayList<Socket> allclientsocket;
 //    private HashMap<String, ArrayList<Socket>> name;
     
@@ -29,10 +31,10 @@ public class ClientHandler implements Runnable {
     @Override
     public void run() {
         TrollMessage troll = new TrollMessage();
+        int count = 0;
         try {
-            
-            String firstclientinput = in.readLine();
-            clientname.add(firstclientinput);
+//            String firstclientinput = in.readLine();
+//            clientname.add(firstclientinput);
             while (true) {
                 String clientinput = in.readLine();
                 String afterTroll = troll.CompareVAdj(clientinput);
@@ -40,15 +42,16 @@ public class ClientHandler implements Runnable {
                     break;
                     
                 }
-                else /*(clientinput.startsWith("say"))*/{
+                else/*(clientinput.startsWith("say"))*/{
 //                    int firstspace = clientinput.indexOf(" ");
 //                    if (firstspace != -1){
-                        
-                        outToAll(firstclientinput + ": " + afterTroll/*.substring(firstspace+1)*/);
+                        System.out.println(getUsername(specialid));
+                        outToAll(clientele + ": " + afterTroll/*.substring(firstspace+1)*/);
                     }
-                
+//                System.out.println(count);
                 //out.println(clientinput);
                 //out.println("Let's chat!");
+                count++;
             }
         } catch (IOException e){
             System.err.println("IO exception in client handler");
