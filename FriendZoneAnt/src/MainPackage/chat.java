@@ -44,7 +44,7 @@ public class chat extends javax.swing.JFrame implements Runnable{
         initComponents();
         this.setLocationRelativeTo(null);
         entermsg.setBackground(new Color(0,0,0,0));
-        Client chatclient = new Client(specialid);
+//        Client chatclient = new Client(specialid);
 //        startChat();
     }
 
