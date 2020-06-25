@@ -46,11 +46,10 @@ public class LoginExistingUser extends javax.swing.JFrame {
         password = new javax.swing.JPasswordField();
         login = new javax.swing.JButton();
         back = new javax.swing.JLabel();
-        close = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setUndecorated(false);
 
         email.setFont(new java.awt.Font("Arial", 0, 30)); // NOI18N
         email.setForeground(new java.awt.Color(87, 96, 111));
@@ -101,15 +100,6 @@ public class LoginExistingUser extends javax.swing.JFrame {
             }
         });
 
-        close.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
-        close.setForeground(new java.awt.Color(236, 240, 241));
-        close.setText("X");
-        close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        close.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeMouseClicked(evt);
-            }
-        });
 
         background.setIcon(new javax.swing.ImageIcon("friendzone loginwithacc..jpg")); // NOI18N
 
@@ -117,9 +107,6 @@ public class LoginExistingUser extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(1730, 1730, 1730)
-                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(680, 680, 680)
                 .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -149,9 +136,7 @@ public class LoginExistingUser extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(310, 310, 310)
+                .addGap(380, 380, 380)
                 .addComponent(email)
                 .addGap(5, 5, 5)
                 .addComponent(textemail, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,10 +254,7 @@ public class LoginExistingUser extends javax.swing.JFrame {
         this.dispose();
     }                                 
 
-    private void closeMouseClicked(java.awt.event.MouseEvent evt) {                                   
-        // TODO add your handling code here:
-        System.exit(0);
-    }                                  
+                                  
 
     /**
      * @param args the command line arguments
@@ -312,7 +294,6 @@ public class LoginExistingUser extends javax.swing.JFrame {
     // Variables declaration - do not modify                     
     private javax.swing.JLabel back;
     private javax.swing.JLabel background;
-    private javax.swing.JLabel close;
     private javax.swing.JLabel email;
     private javax.swing.JButton login;
     private javax.swing.JLabel pass;

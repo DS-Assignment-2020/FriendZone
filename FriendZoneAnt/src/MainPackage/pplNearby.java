@@ -51,8 +51,6 @@ public class pplNearby extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        close = new javax.swing.JLabel();
-        min = new javax.swing.JLabel();
         search = new javax.swing.JButton();
         leftarrow = new javax.swing.JButton();
         rightarrow = new javax.swing.JButton();
@@ -66,26 +64,8 @@ public class pplNearby extends javax.swing.JFrame {
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setUndecorated(false);
 
-        close.setBackground(new java.awt.Color(255, 255, 255));
-        close.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
-        close.setText(" X");
-        close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        close.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeMouseClicked(evt);
-            }
-        });
-
-        min.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
-        min.setText("—");
-        min.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        min.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                minMouseClicked(evt);
-            }
-        });
 
         search.setBackground(new java.awt.Color(52, 152, 219));
         search.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -152,9 +132,6 @@ public class pplNearby extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(1680, 1680, 1680)
-                .addComponent(min))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(1500, 1500, 1500)
                 .addComponent(num, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
@@ -166,9 +143,6 @@ public class pplNearby extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(819, 819, 819)
                 .addComponent(rightarrow, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(1741, 1741, 1741)
-                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(360, 360, 360)
                 .addComponent(interest))
@@ -192,9 +166,6 @@ public class pplNearby extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(min))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(320, 320, 320)
                 .addComponent(num, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
@@ -206,9 +177,6 @@ public class pplNearby extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(430, 430, 430)
                 .addComponent(rightarrow, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(close))
             .addGroup(layout.createSequentialGroup()
                 .addGap(630, 630, 630)
                 .addComponent(interest))
@@ -233,15 +201,8 @@ public class pplNearby extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void closeMouseClicked(java.awt.event.MouseEvent evt) {                                   
-        // TODO add your handling code here:
-        System.exit(0);
-    }                                  
-
-    private void minMouseClicked(java.awt.event.MouseEvent evt) {                                 
-        // TODO add your handling code here:
-        this.setState(JFrame.ICONIFIED);
-    }                                
+                               
+                              
 
     private void leftarrowActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
@@ -423,7 +384,7 @@ System.out.println(distant_partners);
         ch.pack();
         ch.setLocationRelativeTo(null);
         ch.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+        //this.dispose();
     }  
     
     private int incrementRange(){
@@ -478,7 +439,6 @@ System.out.println(distant_partners);
     private javax.swing.JButton leftarrow;
     private javax.swing.JLabel location;
     private javax.swing.JLabel matches;
-    private javax.swing.JLabel min;
     private javax.swing.JLabel num;
     private javax.swing.JButton rightarrow;
     private javax.swing.JButton search;

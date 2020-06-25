@@ -49,13 +49,12 @@ public class LoginForm extends javax.swing.JFrame {
         loginOtherAcc = new javax.swing.JLabel();
         createNewAcc = new javax.swing.JLabel();
         login = new javax.swing.JButton();
-        close = new javax.swing.JLabel();
         email = new javax.swing.JLabel();
         pass = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setUndecorated(false);
 
         min.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
         min.setForeground(new java.awt.Color(236, 240, 241));
@@ -116,15 +115,6 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        close.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
-        close.setForeground(new java.awt.Color(236, 240, 241));
-        close.setText("X");
-        close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        close.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeMouseClicked(evt);
-            }
-        });
 
         email.setFont(new java.awt.Font("Arial", 0, 30)); // NOI18N
         email.setForeground(new java.awt.Color(87, 96, 111));
@@ -143,9 +133,7 @@ public class LoginForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(1730, 1730, 1730)
-                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
+                
                 .addGap(680, 680, 680)
                 .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
@@ -177,8 +165,6 @@ public class LoginForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(310, 310, 310)
                 .addComponent(email)
                 .addGap(55, 55, 55)
@@ -319,7 +305,6 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JLabel close;
     private javax.swing.JLabel createNewAcc;
     private javax.swing.JLabel email;
     private javax.swing.JLabel jLabel1;

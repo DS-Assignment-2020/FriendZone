@@ -63,7 +63,7 @@ public class OldSignUpForm extends javax.swing.JFrame {
         
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setUndecorated(false);
         
          min.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
         min.setForeground(new java.awt.Color(236, 240, 241));

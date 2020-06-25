@@ -56,7 +56,6 @@ public class SignupForm extends javax.swing.JFrame {
         textemail = new javax.swing.JTextField();
         location = new javax.swing.JLabel();
         location1 = new javax.swing.JPasswordField();
-        close = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
@@ -65,7 +64,6 @@ public class SignupForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1800, 1050));
         setMinimumSize(new java.awt.Dimension(1800, 1020));
-        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1800, 1023));
 
         male.setBackground(new java.awt.Color(255, 255, 255));
@@ -135,16 +133,6 @@ public class SignupForm extends javax.swing.JFrame {
             }
         });
 
-        close.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
-        close.setForeground(new java.awt.Color(236, 240, 241));
-        close.setText("X");
-        close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        close.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeMouseClicked(evt);
-            }
-        });
-
         back.setBackground(new java.awt.Color(0, 0, 0));
         back.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
         back.setText("←");
@@ -162,9 +150,6 @@ public class SignupForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(1730, 1730, 1730)
-                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(680, 680, 680)
                 .addComponent(textemail, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -207,9 +192,7 @@ public class SignupForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(330, 330, 330)
+                .addGap(400, 400, 400)
                 .addComponent(textemail, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,11 +235,6 @@ public class SignupForm extends javax.swing.JFrame {
     private void textemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textemailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textemailActionPerformed
-
-    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_closeMouseClicked
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
         // TODO add your handling code here:
@@ -319,7 +297,6 @@ public class SignupForm extends javax.swing.JFrame {
     private javax.swing.JLabel back;
     private javax.swing.JLabel background;
     private javax.swing.JLabel bg;
-    private javax.swing.JLabel close;
     private javax.swing.JLabel email;
     private javax.swing.JRadioButton female;
     private javax.swing.JLabel gender;

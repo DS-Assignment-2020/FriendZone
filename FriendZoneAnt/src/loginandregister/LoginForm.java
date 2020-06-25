@@ -37,7 +37,6 @@ public class LoginForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        min = new javax.swing.JLabel();
         newtofriendzone = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
         textusername = new javax.swing.JTextField();
@@ -45,24 +44,12 @@ public class LoginForm extends javax.swing.JFrame {
         createNewAcc = new javax.swing.JLabel();
         email1 = new javax.swing.JLabel();
         login = new javax.swing.JButton();
-        close = new javax.swing.JLabel();
         username = new javax.swing.JLabel();
         pass = new javax.swing.JLabel();
         textemail1 = new javax.swing.JTextField();
         textemail = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-
-        min.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
-        min.setForeground(new java.awt.Color(236, 240, 241));
-        min.setText("—");
-        min.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        min.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                minMouseClicked(evt);
-            }
-        });
 
         newtofriendzone.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         newtofriendzone.setForeground(new java.awt.Color(52, 73, 94));
@@ -117,16 +104,6 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        close.setFont(new java.awt.Font("Arial Black", 0, 40)); // NOI18N
-        close.setForeground(new java.awt.Color(236, 240, 241));
-        close.setText("X");
-        close.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        close.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                closeMouseClicked(evt);
-            }
-        });
-
         username.setFont(new java.awt.Font("Arial", 0, 30)); // NOI18N
         username.setForeground(new java.awt.Color(87, 96, 111));
         username.setText("Username:");
@@ -150,11 +127,6 @@ public class LoginForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(1660, 1660, 1660)
-                .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(680, 680, 680)
                 .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -191,11 +163,7 @@ public class LoginForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(min, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(close, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(290, 290, 290)
+                .addGap(370, 370, 370)
                 .addComponent(username)
                 .addGap(5, 5, 5)
                 .addComponent(textusername, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -226,16 +194,6 @@ public class LoginForm extends javax.swing.JFrame {
     private void textusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textusernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textusernameActionPerformed
-
-    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_closeMouseClicked
-
-    private void minMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minMouseClicked
-        // TODO add your handling code here:
-        this.setState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_minMouseClicked
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
@@ -332,12 +290,10 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel close;
     private javax.swing.JLabel createNewAcc;
     private javax.swing.JLabel email1;
     private javax.swing.JButton login;
     private javax.swing.JLabel loginOtherAcc;
-    private javax.swing.JLabel min;
     private javax.swing.JLabel newtofriendzone;
     private javax.swing.JLabel pass;
     private javax.swing.JPasswordField password;
