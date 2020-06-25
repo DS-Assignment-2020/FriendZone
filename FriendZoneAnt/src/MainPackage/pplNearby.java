@@ -291,7 +291,7 @@ public class pplNearby extends javax.swing.JFrame {
 //            }
 //            interest.setText(interest_text);
 System.out.println(distant_partners);
-            sortedInterest sort = new sortedInterest(distant_partners);
+            sortedInterest sort = new sortedInterest(distant_partners,specialid);
             potential_matches = sort.getPartners();
             System.out.println(potential_matches);
             displayInfo(i);

@@ -20,9 +20,11 @@ import java.util.LinkedList;
 public class sortedInterest {
     
     LinkedList<String> partners;
+    String specialid = "";
     
-    public sortedInterest(LinkedList<String> partners){
+    public sortedInterest(LinkedList<String> partners, String specialid){
         this.partners=partners;
+        this.specialid=specialid;
     }
     
     public  LinkedList<String> getPartners(){
@@ -31,7 +33,7 @@ public class sortedInterest {
 //        System.out.println("User interest(00000019) : "+getInterests("00000019"));
         for (int i = 0; i < partners.size(); i++) {
 //            System.out.println(partners.get(i)+" "+getInterests(partners.get(i)));
-            in[i] = isSame(getInterests("00000019"),getInterests(partners.get(i)));
+            in[i] = isSame(getInterests(specialid),getInterests(partners.get(i)));
             str[i] = partners.get(i);
 //            System.out.println(isSame(getInterests("00000019"),getInterests(partners.get(i))));
         }
