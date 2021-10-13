@@ -1,2 +1,2 @@
 # FriendZone
-Update your code here so we can easily compile our work
+This one goes out to all the loners out there
